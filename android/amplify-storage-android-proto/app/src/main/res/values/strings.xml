@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">amplify-storage-android-proto</string>
+    <string name="gallery">Gallery</string>
+    <string name="upload">Upload</string>
+    <string name="download">Download</string>
+    <string name="test_image">test image</string>
+    <string name="missing_image">Missing Image</string>
+</resources>

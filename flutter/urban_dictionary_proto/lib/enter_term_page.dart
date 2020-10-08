@@ -12,7 +12,7 @@ class EnterTermPage extends StatefulWidget {
 }
 
 class _EnterTermPageState extends State<EnterTermPage> {
-  var termFieldController = TextEditingController();
+  final termFieldController = TextEditingController();
 
   Widget termForm() {
     return Column(

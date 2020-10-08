@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifystorageandroi-dev-80629-authRole",
+      "UnauthRoleArn": "arn:aws:iam::088987693321:role/amplify-amplifystorageandroi-dev-80629-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::088987693321:role/amplify-amplifystorageandroi-dev-80629-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-amplifystorageandroi-dev-80629-deployment",
+      "UnauthRoleName": "amplify-amplifystorageandroi-dev-80629-unauthRole",
+      "StackName": "amplify-amplifystorageandroi-dev-80629",
+      "StackId": "arn:aws:cloudformation:us-west-2:088987693321:stack/amplify-amplifystorageandroi-dev-80629/aeb52190-08ae-11eb-a258-0292a5f1530f",
+      "AmplifyAppId": "d3hupl7034c9o8"
+    },
+    "categories": {
+      "auth": {
+        "amplifystorageandroi6b5ced85": {}
+      }
+    }
+  }
+}

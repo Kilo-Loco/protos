@@ -1,0 +1,16 @@
+{
+  "auth": {
+    "amplifystorageandroi6b5ced85": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "s30cf5861c": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}
