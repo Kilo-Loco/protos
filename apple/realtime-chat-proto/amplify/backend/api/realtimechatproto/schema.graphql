@@ -1,0 +1,5 @@
+type Message @model {
+  id: ID!
+  senderName: String!
+  body: String!
+}
