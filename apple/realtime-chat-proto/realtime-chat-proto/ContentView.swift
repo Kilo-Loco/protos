@@ -18,6 +18,7 @@ class SourceOfTruth: ObservableObject {
     var subscription: GraphQLSubscriptionOperation<Message>?
     
     func getMessages() {
+        
         Amplify.API.query(request: .list(Message.self)) { [weak self] queryResult in
             switch queryResult {
             case .success(let messagesResult):
@@ -25,7 +26,7 @@ class SourceOfTruth: ObservableObject {
                 switch messagesResult {
                 case .success(let messages):
                     DispatchQueue.main.async {
-                        self?.messages = messages
+                        self?.messages = messages.sorted(by: { $0.body < $1.body })
                     }
                     
                 case .failure(let error):
@@ -96,8 +97,6 @@ struct ContentView: View {
     @ObservedObject private var sot = SourceOfTruth()
     private let currentUserName: String
     @State private var textFieldText = String()
-    
-    @State private var scrollViewProxy: ScrollViewProxy?
     
     init(currentUserName: String = "Jamal Lee") {
         self.currentUserName = currentUserName
