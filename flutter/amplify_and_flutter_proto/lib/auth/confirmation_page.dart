@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class ConfirmationPage extends StatefulWidget {
   static const valueKey = ValueKey('ConfirmationPage');
-  ConfirmationPage({Key key, this.email}) : super(key: key);
+  ConfirmationPage({Key key, this.email, this.didProvideConfirmationCode})
+      : super(key: key);
 
   final String email;
+  final ValueChanged<String> didProvideConfirmationCode;
 
   @override
   State<StatefulWidget> createState() => _ConfirmationPageState();
@@ -14,7 +16,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
   final _verificationCodeController = TextEditingController();
 
   void _verify() {
-    print(_verificationCodeController.text);
+    widget.didProvideConfirmationCode(_verificationCodeController.text);
   }
 
   Widget _confirmationForm() {
@@ -26,7 +28,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
           controller: _verificationCodeController,
           decoration: InputDecoration(labelText: 'Verification Code'),
           obscureText: true,
-          keyboardType: TextInputType.visiblePassword,
+          keyboardType: TextInputType.number,
         ),
 
         // Verify Button

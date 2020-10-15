@@ -1,10 +1,12 @@
+import 'package:amplify_and_flutter_proto/auth/login_credentials.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
   static const valueKey = ValueKey('LoginPage');
-  LoginPage({Key key, this.shouldShowSignUp});
+  LoginPage({Key key, this.shouldShowSignUp, this.didProvideCredentials});
 
   final VoidCallback shouldShowSignUp;
+  final ValueChanged<LoginCredentials> didProvideCredentials;
 
   @override
   State<StatefulWidget> createState() => _LoginPageState();
@@ -15,8 +17,10 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordController = TextEditingController();
 
   void _login() {
-    print('Email ${_emailController.text}');
-    print('Password ${_passwordController.text}');
+    final credentials = LoginCredentials(
+        email: _emailController.text, password: _passwordController.text);
+
+    widget.didProvideCredentials(credentials);
   }
 
   Widget loginForm() {
