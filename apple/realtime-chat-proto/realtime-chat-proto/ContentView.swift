@@ -8,9 +8,6 @@
 import Amplify
 import SwiftUI
 
-enum AmpError: Error {
-    case someError
-}
 
 class SourceOfTruth: ObservableObject {
     @Published var messages = [Message]()
