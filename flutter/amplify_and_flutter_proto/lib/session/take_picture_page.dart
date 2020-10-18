@@ -1,3 +1,5 @@
+import 'package:amplify_and_flutter_proto/analytics/analytic_events.dart';
+import 'package:amplify_and_flutter_proto/analytics/analytics_serice.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
@@ -42,22 +44,26 @@ class _TakePicturePageState extends State<TakePicturePage> {
           }),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.camera_alt),
-        onPressed: () async {
-          try {
-            await _initializeControllerFuture;
-
-            final path = join(
-                (await getTemporaryDirectory()).path, '${DateTime.now()}.png');
-
-            await _controller.takePicture(path);
-
-            widget.didProvideImagePath(path);
-          } catch (e) {
-            print(e);
-          }
-        },
+        onPressed: _takePicture,
       ),
     );
+  }
+
+  void _takePicture() async {
+    try {
+      await _initializeControllerFuture;
+
+      final path =
+          join((await getTemporaryDirectory()).path, '${DateTime.now()}.png');
+
+      await _controller.takePicture(path);
+
+      widget.didProvideImagePath(path);
+
+      AnalyticsService.log(TakePictureEvent(cameraType: widget.camera.name));
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override

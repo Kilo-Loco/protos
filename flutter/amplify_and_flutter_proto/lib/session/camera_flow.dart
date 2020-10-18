@@ -26,7 +26,9 @@ class _CameraFlowState extends State<CameraFlow> {
     final camerasList = await availableCameras();
     if (camerasList.isEmpty) return;
     setState(() {
-      this._camera = camerasList.first;
+      final firstCamera = camerasList.first;
+      print('CAMERA NAME: ${firstCamera.lensDirection.toString()}');
+      this._camera = firstCamera;
     });
   }
 

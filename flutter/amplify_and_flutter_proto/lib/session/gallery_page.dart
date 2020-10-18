@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:amplify_and_flutter_proto/analytics/analytic_events.dart';
+import 'package:amplify_and_flutter_proto/analytics/analytics_serice.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +14,9 @@ class GalleryPage extends StatelessWidget {
       {Key key,
       this.imageKeysController,
       @required this.shouldLogOut,
-      @required this.shouldShowCamera});
+      @required this.shouldShowCamera}) {
+    AnalyticsService.log(ViewGalleryEvent());
+  }
 
   Widget _galleryGrid() {
     return StreamBuilder(

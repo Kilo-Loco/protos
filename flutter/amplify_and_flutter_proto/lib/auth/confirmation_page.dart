@@ -1,3 +1,6 @@
+import 'package:amplify_analytics_pinpoint/amplify_analytics_pinpoint.dart';
+import 'package:amplify_and_flutter_proto/analytics/analytic_events.dart';
+import 'package:amplify_and_flutter_proto/analytics/analytics_serice.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmationPage extends StatefulWidget {
@@ -17,6 +20,8 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
 
   void _verify() {
     widget.didProvideConfirmationCode(_verificationCodeController.text);
+
+    AnalyticsService.log(VerificationEvent());
   }
 
   Widget _confirmationForm() {

@@ -1,3 +1,5 @@
+import 'package:amplify_and_flutter_proto/analytics/analytic_events.dart';
+import 'package:amplify_and_flutter_proto/analytics/analytics_serice.dart';
 import 'package:amplify_and_flutter_proto/auth/login_credentials.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +23,8 @@ class _LoginPageState extends State<LoginPage> {
         username: _usernameController.text, password: _passwordController.text);
 
     widget.didProvideCredentials(credentials);
+
+    AnalyticsService.log(LoginEvent());
   }
 
   Widget loginForm() {

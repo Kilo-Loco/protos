@@ -1,3 +1,5 @@
+import 'package:amplify_and_flutter_proto/analytics/analytic_events.dart';
+import 'package:amplify_and_flutter_proto/analytics/analytics_serice.dart';
 import 'package:amplify_and_flutter_proto/auth/sign_up_credentials.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +26,8 @@ class _SignUpPagePageState extends State<SignUpPage> {
         password: _passwordController.text);
 
     widget.didProvideCredentials(credentials);
+
+    AnalyticsService.log(SignUpEvent());
   }
 
   Widget _signUpForm() {
