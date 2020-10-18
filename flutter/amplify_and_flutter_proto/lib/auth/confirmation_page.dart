@@ -27,7 +27,6 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
         TextField(
           controller: _verificationCodeController,
           decoration: InputDecoration(labelText: 'Verification Code'),
-          obscureText: true,
           keyboardType: TextInputType.number,
         ),
 

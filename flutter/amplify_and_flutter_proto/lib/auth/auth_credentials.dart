@@ -1,6 +1,6 @@
 abstract class AuthCredentials {
-  AuthCredentials({this.email, this.password});
+  AuthCredentials({this.username, this.password});
 
-  final String email;
+  final String username;
   final String password;
 }

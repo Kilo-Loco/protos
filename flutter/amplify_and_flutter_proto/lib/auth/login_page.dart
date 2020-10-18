@@ -13,12 +13,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _emailController = TextEditingController();
+  final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
   void _login() {
     final credentials = LoginCredentials(
-        email: _emailController.text, password: _passwordController.text);
+        username: _usernameController.text, password: _passwordController.text);
 
     widget.didProvideCredentials(credentials);
   }
@@ -29,9 +29,9 @@ class _LoginPageState extends State<LoginPage> {
       children: [
         // Email TextField
         TextField(
-          controller: _emailController,
+          controller: _usernameController,
           decoration:
-              InputDecoration(icon: Icon(Icons.mail), labelText: 'Email'),
+              InputDecoration(icon: Icon(Icons.mail), labelText: 'Username'),
         ),
 
         // Password TextField

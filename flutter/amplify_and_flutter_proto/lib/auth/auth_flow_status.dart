@@ -1,1 +1,1 @@
-enum AuthFlowStatus { login, signUp, session }
+enum AuthFlowStatus { login, signUp, verification, session }
