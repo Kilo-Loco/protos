@@ -9,6 +9,8 @@ import SwiftUI
 
 struct InboxView: View {
     
+    @State var isSearchUserPresented = false
+    
     let openMenu: () -> Void
     
     var body: some View {
@@ -17,17 +19,25 @@ struct InboxView: View {
                 ScrollView {
                     LazyVStack {
                         ForEach(0 ..< 20) { _ in
-                            RowView()
-                                .padding(.vertical, 8)
-                                .padding(.horizontal)
-                                
-                            Divider()
+                            NavigationLink(
+                                destination: MessagesView(),
+                                label: {
+                                    RowView()
+                                        .foregroundColor(Color(.label))
+                                        .padding(.vertical, 8)
+                                        .padding(.horizontal)
+                                        
+                                    Divider()
+                                }
+                            )
                         }
                     }
                 }
                 
-                ActionButton(action: {}, image: .composeMessage)
-                
+                ActionButton(
+                    action: { isSearchUserPresented.toggle() },
+                    image: .composeMessage
+                )
             }
             .navigationBarTitle("Messages", displayMode: .inline)
             .navigationBarItems(
@@ -35,6 +45,10 @@ struct InboxView: View {
                     Image(systemName: "line.horizontal.3")
                         .frame(width: 44, height: 44, alignment: .leading)
                 }
+            )
+            .fullScreenCover(
+                isPresented: $isSearchUserPresented,
+                content: { SearchUserView(onSelectedUser: { print($0) }) }
             )
         }
     }

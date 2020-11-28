@@ -10,63 +10,59 @@ import SwiftUI
 struct EditProfileView: View {
     
     var body: some View {
-        NavigationView {
-            VStack(alignment: .leading) {
-                Button(action: {}) {
-                    ZStack {
-                        Image(systemName: "person.circle")
-                            .resizable()
-                        
-                        Color(white: 0, opacity: 0.5)
-                        
-                        Image(systemName: "camera")
-                            .foregroundColor(.white)
-                    }
-                    .clipShape(Circle())
-                    .frame(width: 50, height: 50)
-                }
-                .padding(.horizontal)
-                
-                Divider()
-                
-                HStack {
-                    Text("Name")
-                        .bold()
-                        .frame(width: 75, alignment: .leading)
+        VStack(alignment: .leading) {
+            Button(action: {}) {
+                ZStack {
+                    Image(systemName: "person.circle")
+                        .resizable()
                     
-                    TextField("", text: .constant("Kilo Loco"))
-                        .foregroundColor(.accentColor)
-                }
-                .padding(.horizontal)
-                
-                Divider()
-                
-                HStack(alignment: .top) {
-                    Text("Bio")
-                        .bold()
-                        .frame(width: 70, alignment: .leading)
-                        .padding(.top, 8)
+                    Color(white: 0, opacity: 0.5)
                     
-                    TextEditor(text: .constant("Kilo Loco"))
-                        
-                        .foregroundColor(.accentColor)
-                        .frame(height: 200)
+                    Image(systemName: "camera")
+                        .foregroundColor(.white)
                 }
-                .padding(.horizontal)
-                
-                Divider()
-                
-                Spacer()
+                .clipShape(Circle())
+                .frame(width: 50, height: 50)
             }
-            .padding(.top)
-            .navigationBarTitle("Edit profile", displayMode: .inline)
-            .navigationBarItems(
-                leading: Text("Cancel")
-                    .foregroundColor(.accentColor),
-                trailing: Text("Save")
+            .padding(.horizontal)
+            
+            Divider()
+            
+            HStack {
+                Text("Name")
+                    .bold()
+                    .frame(width: 75, alignment: .leading)
+                
+                TextField("", text: .constant("Kilo Loco"))
                     .foregroundColor(.accentColor)
-            )
+            }
+            .padding(.horizontal)
+            
+            Divider()
+            
+            HStack(alignment: .top) {
+                Text("Bio")
+                    .bold()
+                    .frame(width: 70, alignment: .leading)
+                    .padding(.top, 8)
+                
+                TextEditor(text: .constant("Kilo Loco"))
+                    
+                    .foregroundColor(.accentColor)
+                    .frame(height: 200)
+            }
+            .padding(.horizontal)
+            
+            Divider()
+            
+            Spacer()
         }
+        .padding(.top)
+        .navigationBarTitle("Edit profile", displayMode: .inline)
+        .navigationBarItems(
+            trailing: Text("Save")
+                .foregroundColor(.accentColor)
+        )
     }
 }
 

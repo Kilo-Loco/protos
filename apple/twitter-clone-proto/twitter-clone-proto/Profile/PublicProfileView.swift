@@ -9,7 +9,16 @@ import SwiftUI
 
 struct PublicProfileView: View {
     
-    @State private var favoriteColor = 0
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var authService: AuthService
+    
+    @State private var selectedSegment = 0
+    
+    let user: String
+    
+    var isCurrentUsersProfile: Bool {
+        user == authService.currentUser
+    }
     
     var body: some View {
         NavigationView {
@@ -24,12 +33,19 @@ struct PublicProfileView: View {
                             
                             Spacer()
                             
-                            Button("Edit profile", action: {})
-                                .padding(.horizontal)
-                                .padding(.vertical, 4)
-                                .foregroundColor(.white)
-                                .background(Color.accentColor)
-                                .clipShape(Capsule())
+                            
+                            NavigationLink(
+                                destination: EditProfileView(),
+                                label: {
+                                    Text("Edit profile")
+                                        .padding(.horizontal)
+                                        .padding(.vertical, 4)
+                                        .foregroundColor(.white)
+                                        .background(Color.accentColor)
+                                        .clipShape(Capsule())
+                                })
+                            
+                            
                         }
                         
                         Text("Display Name")
@@ -55,7 +71,7 @@ struct PublicProfileView: View {
                         }
                         .font(.callout)
                         
-                        Picker(selection: $favoriteColor, label: Text("What is your favorite color?")) {
+                        Picker(selection: $selectedSegment, label: Text("What is your favorite color?")) {
                             Text("Wuphfs").tag(0)
                             Text("Media").tag(1)
                             Text("Likes").tag(2)
@@ -65,18 +81,25 @@ struct PublicProfileView: View {
                     .padding()
                     
                     ForEach(0 ..< 10) { index in
-                        WuphfView()
+                        WuphfView { print($0) }
                     }
                     .padding(.horizontal)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(
+                leading: Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                    Image(systemName: "chevron.left")
+                }
+                .frame(width: 44, height: 44, alignment: .leading)
+            )
         }
+        .accentColor(.purple)
     }
 }
 
 struct PublicProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        PublicProfileView()
+        PublicProfileView(user: "true")
     }
 }

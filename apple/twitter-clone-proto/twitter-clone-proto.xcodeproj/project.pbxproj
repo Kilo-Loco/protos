@@ -34,6 +34,8 @@
 		7C12AF6C2571B400007F9D58 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C12AF6B2571B400007F9D58 /* AuthView.swift */; };
 		7C12AF6F2571B41C007F9D58 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C12AF6E2571B41C007F9D58 /* AuthService.swift */; };
 		7C12AF722571B55A007F9D58 /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C12AF712571B55A007F9D58 /* AuthCredentials.swift */; };
+		7C12AF882571EF6F007F9D58 /* NavigationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C12AF872571EF6F007F9D58 /* NavigationService.swift */; };
+		7C29EC862572160000E56493 /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C29EC852572160000E56493 /* SearchUserView.swift */; };
 		7C904EB42565E413002432EA /* twitter_clone_protoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C904EB32565E413002432EA /* twitter_clone_protoApp.swift */; };
 		7C904EB82565E415002432EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C904EB72565E415002432EA /* Assets.xcassets */; };
 		7C904EBB2565E415002432EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C904EBA2565E415002432EA /* Preview Assets.xcassets */; };
@@ -77,6 +79,8 @@
 		7C12AF6B2571B400007F9D58 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		7C12AF6E2571B41C007F9D58 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7C12AF712571B55A007F9D58 /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
+		7C12AF872571EF6F007F9D58 /* NavigationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationService.swift; sourceTree = "<group>"; };
+		7C29EC852572160000E56493 /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
 		7C904EB02565E413002432EA /* twitter-clone-proto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "twitter-clone-proto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C904EB32565E413002432EA /* twitter_clone_protoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twitter_clone_protoApp.swift; sourceTree = "<group>"; };
 		7C904EB72565E415002432EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,7 +124,6 @@
 				7C12AF19256F3C0B007F9D58 /* macbook-10.JPG */,
 				7C12AF21256F3C0F007F9D58 /* macbook-11.JPG */,
 				7C12AF18256F3C0A007F9D58 /* macbook-12.JPG */,
-				7C12AF652571AF22007F9D58 /* SessionCoordinatorView.swift */,
 			);
 			path = "stock-photos";
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			children = (
 				7C12AF6E2571B41C007F9D58 /* AuthService.swift */,
 				7C12AF58256F6F2A007F9D58 /* DateFormatterService.swift */,
+				7C12AF872571EF6F007F9D58 /* NavigationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -159,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				7C904EB32565E413002432EA /* twitter_clone_protoApp.swift */,
+				7C12AF652571AF22007F9D58 /* SessionCoordinatorView.swift */,
 				7C904EBC2565E415002432EA /* Info.plist */,
 				7C904EB72565E415002432EA /* Assets.xcassets */,
 				7C904EB92565E415002432EA /* Preview Content */,
@@ -198,6 +203,7 @@
 			children = (
 				7C12AF39256F4DB4007F9D58 /* InboxView.swift */,
 				7C12AF55256F6AA1007F9D58 /* MessagesView.swift */,
+				7C29EC852572160000E56493 /* SearchUserView.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -358,6 +364,7 @@
 				7C904EC42565EBAD002432EA /* AuthSelectionView.swift in Sources */,
 				7CFA2FE6256DED6400482A11 /* WuphfDetailsView.swift in Sources */,
 				7C12AF53256F67F7007F9D58 /* RoundableShape.swift in Sources */,
+				7C12AF882571EF6F007F9D58 /* NavigationService.swift in Sources */,
 				7C12AF12256F0843007F9D58 /* CharacterCountRing.swift in Sources */,
 				7C12AF59256F6F2A007F9D58 /* DateFormatterService.swift in Sources */,
 				7C904EB42565E413002432EA /* twitter_clone_protoApp.swift in Sources */,
@@ -367,6 +374,7 @@
 				7C12AF722571B55A007F9D58 /* AuthCredentials.swift in Sources */,
 				7CFA2FE2256D776300482A11 /* MenuView.swift in Sources */,
 				7C12AF15256F1557007F9D58 /* ComposeWuphfView.swift in Sources */,
+				7C29EC862572160000E56493 /* SearchUserView.swift in Sources */,
 				7C904FA8256743CB002432EA /* FormInputField.swift in Sources */,
 				7C904FAB25674D1A002432EA /* CreateAccountView.swift in Sources */,
 				7CFA2FD9256C7BE700482A11 /* TimelineView.swift in Sources */,
@@ -500,7 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"twitter-clone-proto/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"twitter-clone-proto/App/Preview Content\"";
 				DEVELOPMENT_TEAM = 5K99777NES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/twitter-clone-proto/App/Info.plist";
@@ -522,7 +530,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"twitter-clone-proto/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"twitter-clone-proto/App/Preview Content\"";
 				DEVELOPMENT_TEAM = 5K99777NES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/twitter-clone-proto/App/Info.plist";

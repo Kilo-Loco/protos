@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ComposeWuphfView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @State private var text = String()
     
     var body: some View {
@@ -53,16 +55,22 @@ struct ComposeWuphfView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: Button("Cancel", action: {}))
-            .navigationBarItems(trailing: Button(action: {}) {
-                Text("Wuphf")
-                    .padding(.vertical, 4)
-                    .padding(.horizontal)
-                    .foregroundColor(.white)
-                    .background(Color.purple)
-                    .clipShape(Capsule())
-            })
+            .navigationBarItems(
+                leading: Button(
+                    "Cancel",
+                    action: { presentationMode.wrappedValue.dismiss() }
+                ),
+                trailing: Button(action: {  }) {
+                    Text("Wuphf")
+                        .padding(.vertical, 4)
+                        .padding(.horizontal)
+                        .foregroundColor(.white)
+                        .background(Color.accentColor)
+                        .clipShape(Capsule())
+                }
+            )
         }
+        .accentColor(.purple)
     }
 }
 

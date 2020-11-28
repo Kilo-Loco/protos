@@ -9,7 +9,9 @@ import SwiftUI
 
 struct MenuView: View {
     
+    @EnvironmentObject var authService: AuthService
     let menuWidth: CGFloat
+    let showCurrentUserProfile: () -> Void
     
     var body: some View {
         HStack {
@@ -51,16 +53,23 @@ struct MenuView: View {
                             .font(.title3)
                     }
                     .padding(.vertical)
+                    .onTapGesture(perform: showCurrentUserProfile)
                     
                     Divider()
                     
-                    Text("Log out")
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.red)
-                        .padding(.vertical)
+                    HStack {
+                        Text("Log out")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.red)
+                            .padding(.vertical)
+                        
+                        Spacer()
+                    }
+                    .onTapGesture(perform: authService.logOut)
                     
                     Spacer()
+                        
                 }
                 .padding(.leading, 24)
             }
@@ -73,6 +82,6 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(menuWidth: 300)
+        MenuView(menuWidth: 300, showCurrentUserProfile: {})
     }
 }

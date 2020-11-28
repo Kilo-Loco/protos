@@ -9,6 +9,8 @@ import SwiftUI
 
 struct NotificationsView: View {
     
+    @State private var isComposeWuphfPresented = false
+    
     let openMenu: () -> Void
     
     var body: some View {
@@ -27,7 +29,10 @@ struct NotificationsView: View {
                     }
                 }
                 
-                ActionButton(action: {}, image: .newWuphf)
+                ActionButton(
+                    action: { isComposeWuphfPresented.toggle() },
+                    image: .newWuphf
+                )
             }
             .navigationBarTitle("Notifications", displayMode: .inline)
             .navigationBarItems(
@@ -36,6 +41,10 @@ struct NotificationsView: View {
                         .frame(width: 44, height: 44)
                         .offset(x: -16)
                 }
+            )
+            .fullScreenCover(
+                isPresented: $isComposeWuphfPresented,
+                content: ComposeWuphfView.init
             )
         }
     }

@@ -13,7 +13,7 @@ struct ActionButton: View {
     let image: ActionImage
     
     var body: some View {
-        Button(action: {}) {
+        Button(action: action) {
             Image(systemName: image.rawValue)
                 .font(.title)
                 .padding()

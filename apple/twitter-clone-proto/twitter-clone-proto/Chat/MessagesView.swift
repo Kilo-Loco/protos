@@ -13,44 +13,44 @@ struct MessagesView: View {
     @State var messageIsEditing = false
     
     var body: some View {
-        NavigationView {
-            VStack {
-                ScrollView {
-                    LazyVStack {
-                        ForEach(0 ..< 20) { index in
-                            RowView(text: "what if the text is really long like this and needs to wrap? Index \(index)", isCurrentUser: Bool.random(), date: Date())
-                        }
+        VStack {
+            
+            ScrollView {
+                LazyVStack {
+                    ForEach(0 ..< 20) { index in
+                        RowView(text: "what if the text is really long like this and needs to wrap? Index \(index)", isCurrentUser: Bool.random(), date: Date())
                     }
-                }
-                .rotationEffect(Angle(degrees: 180))
-                
-                ZStack {
-                    Color(.systemBackground)
-                        .frame(height: 70)
-                    
-                    HStack {
-                        TextField(
-                            "Start a message",
-                            text: $messageText,
-                            onEditingChanged: { messageIsEditing = $0 }
-                        )
-                        .padding(.vertical, 8)
-                        .padding(.horizontal)
-                        .background(Color(.secondarySystemBackground))
-                        .clipShape(Capsule())
-                        
-                        Button(action: {}) {
-                            Image(systemName: "arrow.up.circle.fill")
-                                .font(.title)
-                                .frame(width: 44, height: 44)
-                        }
-                    }
-                    .padding(.horizontal)
-                    
                 }
             }
-            .navigationBarTitle("Kilo Loco", displayMode: .inline)
+            .rotationEffect(Angle(degrees: 180))
+            
+            ZStack {
+                Color(.systemBackground)
+                    .frame(height: 70)
+                
+                HStack {
+                    TextField(
+                        "Start a message",
+                        text: $messageText,
+                        onEditingChanged: { messageIsEditing = $0 }
+                    )
+                    .padding(.vertical, 8)
+                    .padding(.horizontal)
+                    .background(Color(.secondarySystemBackground))
+                    .clipShape(Capsule())
+                    
+                    Button(action: {}) {
+                        Image(systemName: "arrow.up.circle.fill")
+                            .font(.title)
+                            .frame(width: 44, height: 44)
+                    }
+                }
+                .padding(.horizontal)
+                
+            }
         }
+        .navigationBarTitle("Kilo Loco", displayMode: .inline)
+        
     }
 }
 

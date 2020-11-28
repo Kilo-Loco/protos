@@ -7,9 +7,18 @@
 
 import SwiftUI
 
+extension String: Identifiable {
+    public var id: String {
+        self
+    }
+}
+
 struct SessionCoordinatorView: View {
     
+    @EnvironmentObject var authService: AuthService
     @State private var isMenuOpen = false
+    
+    @State private var selectedUser: String?
     
     var body: some View {
         ZStack {
@@ -38,14 +47,25 @@ struct SessionCoordinatorView: View {
                 }
             }
             
-            MenuView(menuWidth: k.menuWidth)
+            MenuView(menuWidth: k.menuWidth, showCurrentUserProfile: { showProfile() })
                 .offset(x: isMenuOpen ? 0 : -k.menuWidth)
+        }
+        .fullScreenCover(item: $selectedUser) { user in
+            PublicProfileView(user: user)
         }
     }
     
     private func toggleMenu(open: Bool) {
         withAnimation {
             isMenuOpen = open
+        }
+    }
+    
+    private func showProfile(for user: Any? = nil) {
+        if let otherUser = user {
+            selectedUser = String(reflecting: otherUser)
+        } else if let currentUser = authService.currentUser {
+            selectedUser = String(reflecting: currentUser)
         }
     }
 }

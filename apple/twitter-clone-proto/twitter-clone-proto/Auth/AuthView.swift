@@ -13,6 +13,8 @@ struct AuthView: View {
     
     var body: some View {
         switch authService.flowState {
+        case .entrySelection:
+            AuthSelectionView()
         case .signUp:
             CreateAccountView()
         case .verify(let email):

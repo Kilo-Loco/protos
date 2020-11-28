@@ -27,7 +27,7 @@ struct CharacterCountRing: View {
         } else if remainingCharacters <= 20 {
             return .yellow
         } else {
-            return .purple
+            return .accentColor
         }
     }
     

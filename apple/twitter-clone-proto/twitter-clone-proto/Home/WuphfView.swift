@@ -15,6 +15,8 @@ struct WuphfView: View {
         return "macbook-\(Int.random(in: 1 ... 12))"
     }
     
+    let performAction: (Action) -> Void
+    
     var body: some View {
         VStack{
             HStack(alignment: .top) {
@@ -53,13 +55,13 @@ struct WuphfView: View {
                     }
                     
                     HStack {
-                        ActionAndCountView(actionItem: .comment(Int.random(in: 0 ..< 100)), action: { print("comment") })
+                        ActionAndCountView(actionItem: .comment(Int.random(in: 0 ..< 100)), action: { performAction(.comment) })
                         Spacer()
-                        ActionAndCountView(actionItem: .rewuphf(Int.random(in: 0 ..< 100)), action: { print("rewolph") })
+                        ActionAndCountView(actionItem: .rewuphf(Int.random(in: 0 ..< 100)), action: { performAction(.rewuphf) })
                         Spacer()
-                        ActionAndCountView(actionItem: .like(Int.random(in: 0 ..< 100), false), action: { print("like") })
+                        ActionAndCountView(actionItem: .like(Int.random(in: 0 ..< 100), false), action: { performAction(.like) })
                         Spacer()
-                        ActionAndCountView(actionItem: .share, action: { print("share") })
+                        ActionAndCountView(actionItem: .share, action: { performAction(.share) })
                         Spacer()
                     }
                 }
@@ -68,8 +70,14 @@ struct WuphfView: View {
     }
 }
 
+extension WuphfView {
+    enum Action {
+        case comment, rewuphf, like, share
+    }
+}
+
 struct WuphfView_Previews: PreviewProvider {
     static var previews: some View {
-        WuphfView()
+        WuphfView(performAction: {_ in})
     }
 }

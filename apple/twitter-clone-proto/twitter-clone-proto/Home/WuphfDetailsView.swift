@@ -11,78 +11,80 @@ struct WuphfDetailsView: View {
     
     @State var commentText = String()
     @State var commentIsEditing = false
+    let wuphf: String
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                ScrollView {
-                    LazyVStack {
-                        OriginalWuphfView()
-                            .padding(.horizontal, 16)
-                        
-                        Divider()
-                        
-                        ForEach(0 ..< 10) { _ in
-                            WuphfView()
-                        }
+        ZStack {
+            ScrollView {
+                LazyVStack {
+                    OriginalWuphfView()
                         .padding(.horizontal, 16)
-                    }
-                    .padding(.vertical)
-                }
-                
-                VStack(spacing: 0) {
-                    Spacer()
+                    
                     Divider()
-                    ZStack {
-                        Color(.systemBackground)
-                            .frame(height: commentIsEditing ? 100 : 70)
+                    
+                    ForEach(0 ..< 10) { _ in
+                        WuphfView {
+                            print($0)
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                }
+                .padding(.vertical)
+            }
+            
+            VStack(spacing: 0) {
+                Spacer()
+                Divider()
+                ZStack {
+                    Color(.systemBackground)
+                        .frame(height: commentIsEditing ? 100 : 70)
+                    
+                    VStack {
+                        TextField(
+                            "Wophf your reply",
+                            text: $commentText,
+                            onEditingChanged: { commentIsEditing = $0 }
+                        )
+                        .padding(.vertical, 8)
+                        .padding(.horizontal)
+                        .background(Color(.secondarySystemBackground))
+                        .clipShape(Capsule())
                         
-                        VStack {
-                            TextField(
-                                "Wophf your reply",
-                                text: $commentText,
-                                onEditingChanged: { commentIsEditing = $0 }
-                            )
-                            .padding(.vertical, 8)
-                            .padding(.horizontal)
-                            .background(Color(.secondarySystemBackground))
-                            .clipShape(Capsule())
-                            
-                            if commentIsEditing {
-                                HStack {
-                                    Button(action: {}) {
-                                        Image(systemName: "photo")
-                                    }
-                                    .frame(width: 44, height: 44)
-                                    
-                                    Button(action: {}) {
-                                        Image(systemName: "camera")
-                                    }
-                                    .frame(width: 44, height: 44)
-                                    
-                                    Spacer()
-                                    
-                                    CharacterCountRing(characterCount: commentText.count)
-                                        .padding(.horizontal)
-                                    
-                                    Button(action: {}) {
-                                        Text("Reply")
-                                            .fontWeight(.semibold)
-                                    }
-                                    .padding(.vertical, 4)
-                                    .padding(.horizontal, 8)
-                                    .foregroundColor(.white)
-                                    .background(Color.accentColor)
-                                    .clipShape(Capsule())
+                        if commentIsEditing {
+                            HStack {
+                                Button(action: {}) {
+                                    Image(systemName: "photo")
                                 }
+                                .frame(width: 44, height: 44)
+                                
+                                Button(action: {}) {
+                                    Image(systemName: "camera")
+                                }
+                                .frame(width: 44, height: 44)
+                                
+                                Spacer()
+                                
+                                CharacterCountRing(characterCount: commentText.count)
+                                    .padding(.horizontal)
+                                
+                                Button(action: {}) {
+                                    Text("Reply")
+                                        .fontWeight(.semibold)
+                                }
+                                .padding(.vertical, 4)
+                                .padding(.horizontal, 8)
+                                .foregroundColor(.white)
+                                .background(Color.accentColor)
+                                .clipShape(Capsule())
                             }
                         }
-                        .padding(.horizontal)
                     }
+                    .padding(.horizontal)
                 }
             }
-            .navigationBarTitle("Wuphf", displayMode: .inline)
         }
+        .foregroundColor(Color(.label))
+        .navigationBarTitle("Wuphf", displayMode: .inline)
     }
 }
 
@@ -177,6 +179,6 @@ extension WuphfDetailsView {
 
 struct WuphfDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        WuphfDetailsView()
+        WuphfDetailsView(wuphf: "")
     }
 }

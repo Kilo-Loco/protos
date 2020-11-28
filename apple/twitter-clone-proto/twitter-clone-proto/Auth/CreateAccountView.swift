@@ -16,6 +16,7 @@ class CreateAccountViewState: ObservableObject {
 
 struct CreateAccountView: View {
     
+    @EnvironmentObject var authService: AuthService
     @StateObject private var state = CreateAccountViewState()
     
     var body: some View {
@@ -29,7 +30,7 @@ struct CreateAccountView: View {
                     .fontWeight(.bold)
                     .padding(.bottom, 50)
                 
-                FormInputField(placeholder: "@Handle", text: $state.handle)
+                FormInputField(placeholder: "Username", text: $state.handle)
                     .padding(.horizontal, 40)
                     .padding(.vertical, 10)
                 FormInputField(placeholder: "Name", text: $state.displayName)
@@ -46,7 +47,7 @@ struct CreateAccountView: View {
                 
                 HStack {
                     Spacer()
-                    Button(action: didTapNext) {
+                    Button(action: signUp) {
                         Text("Next")
                             .fontWeight(.semibold)
                     }
@@ -60,12 +61,21 @@ struct CreateAccountView: View {
             }
             
             .navigationBarTitle(Text("🐺"), displayMode: .inline)
+            .navigationBarItems(
+                leading: Button("Cancel", action: authService.showEntrySelection)
+            )
         }
         
     }
     
-    func didTapNext() {
-        
+    func signUp() {
+        let credentials = SignUpCredentials(
+            handle: state.handle,
+            displayName: state.displayName,
+            email: state.email,
+            password: state.password
+        )
+        authService.signUp(with: credentials)
     }
 }
 
