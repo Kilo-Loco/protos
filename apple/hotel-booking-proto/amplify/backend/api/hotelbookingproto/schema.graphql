@@ -1,0 +1,27 @@
+type Guest @model {
+  id: ID!
+  username: String!
+  bookings: [Booking] @connection(keyName: "bookingsByGuestId", fields: ["id"])
+}
+
+type Hotel @model {
+  id: ID!
+  name: String!
+  description: String!
+  price: Int!
+  imageKey: String!
+  bookings: [Booking] @connection(keyName: "bookingsByHotelId", fields: ["id"])
+}
+
+type Booking @model 
+@key(name: "bookingsByGuestId", fields: ["guestID"]) 
+@key(name: "bookingsByHotelId", fields: ["hotelID"])
+{
+  id: ID!
+  guestID: ID!
+  guest: Guest @connection(keyName: "guestID")
+  hotelID: ID!
+  hotel: Hotel @connection(keyName: "hotelID")
+  startDate: AWSDate!
+  endDate: AWSDate!
+}

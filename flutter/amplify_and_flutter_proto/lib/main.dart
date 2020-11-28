@@ -63,17 +63,14 @@ class _MyAppState extends State<MyApp> {
                   // Show Login Page
                   if (snapshot.data.authFlowStatus == AuthFlowStatus.login)
                     MaterialPage(
-                        key: LoginPage.valueKey,
                         child: LoginPage(
-                          shouldShowSignUp: _authService.showSignUp,
-                          didProvideCredentials:
-                              _authService.loginWithCredentials,
-                        )),
+                      shouldShowSignUp: _authService.showSignUp,
+                      didProvideCredentials: _authService.loginWithCredentials,
+                    )),
 
                   // Show Sign Up Page
                   if (snapshot.data.authFlowStatus == AuthFlowStatus.signUp)
                     MaterialPage(
-                        key: SignUpPage.valueKey,
                         child: SignUpPage(
                             shouldShowLogin: _authService.showLogin,
                             didProvideCredentials:
@@ -83,11 +80,10 @@ class _MyAppState extends State<MyApp> {
                   if (snapshot.data.authFlowStatus ==
                       AuthFlowStatus.verification)
                     MaterialPage(
-                        key: ConfirmationPage.valueKey,
                         child: ConfirmationPage(
-                          didProvideConfirmationCode:
-                              _authService.verifyConfirmation,
-                        )),
+                      didProvideConfirmationCode:
+                          _authService.verifyConfirmation,
+                    )),
 
                   // Show Session Page
                   if (snapshot.data.authFlowStatus == AuthFlowStatus.session &&

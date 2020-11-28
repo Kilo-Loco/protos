@@ -1,10 +1,8 @@
-import 'package:amplify_analytics_pinpoint/amplify_analytics_pinpoint.dart';
 import 'package:amplify_and_flutter_proto/analytics/analytic_events.dart';
 import 'package:amplify_and_flutter_proto/analytics/analytics_serice.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmationPage extends StatefulWidget {
-  static const valueKey = ValueKey('ConfirmationPage');
   ConfirmationPage({Key key, this.email, this.didProvideConfirmationCode})
       : super(key: key);
 

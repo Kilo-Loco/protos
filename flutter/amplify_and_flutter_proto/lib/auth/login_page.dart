@@ -4,7 +4,6 @@ import 'package:amplify_and_flutter_proto/auth/login_credentials.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  static const valueKey = ValueKey('LoginPage');
   LoginPage({Key key, this.shouldShowSignUp, this.didProvideCredentials});
 
   final VoidCallback shouldShowSignUp;

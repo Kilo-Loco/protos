@@ -1,0 +1,21 @@
+{
+    "appName": "testnotif",
+    "roleName": "pinpointLambdaRole6eb4103d",
+    "cloudformationPolicyName": "cloudformationPolicy6eb4103d",
+    "cloudWatchPolicyName": "cloudWatchPolicy6eb4103d",
+    "pinpointPolicyName": "pinpointPolicy6eb4103d",
+    "authPolicyName": "pinpoint_amplify_6eb4103d",
+    "unauthPolicyName": "pinpoint_amplify_6eb4103d",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

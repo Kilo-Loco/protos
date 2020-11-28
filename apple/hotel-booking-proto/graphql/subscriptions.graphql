@@ -1,0 +1,301 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateGuest {
+  onCreateGuest {
+    id
+    username
+    bookings {
+      items {
+        id
+        guestID
+        hotelID
+        startDate
+        endDate
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateGuest {
+  onUpdateGuest {
+    id
+    username
+    bookings {
+      items {
+        id
+        guestID
+        hotelID
+        startDate
+        endDate
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteGuest {
+  onDeleteGuest {
+    id
+    username
+    bookings {
+      items {
+        id
+        guestID
+        hotelID
+        startDate
+        endDate
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateHotel {
+  onCreateHotel {
+    id
+    name
+    description
+    price
+    imageKey
+    bookings {
+      items {
+        id
+        guestID
+        hotelID
+        startDate
+        endDate
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateHotel {
+  onUpdateHotel {
+    id
+    name
+    description
+    price
+    imageKey
+    bookings {
+      items {
+        id
+        guestID
+        hotelID
+        startDate
+        endDate
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteHotel {
+  onDeleteHotel {
+    id
+    name
+    description
+    price
+    imageKey
+    bookings {
+      items {
+        id
+        guestID
+        hotelID
+        startDate
+        endDate
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateBooking {
+  onCreateBooking {
+    id
+    guestID
+    guest {
+      id
+      username
+      bookings {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    hotelID
+    hotel {
+      id
+      name
+      description
+      price
+      imageKey
+      bookings {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    startDate
+    endDate
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateBooking {
+  onUpdateBooking {
+    id
+    guestID
+    guest {
+      id
+      username
+      bookings {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    hotelID
+    hotel {
+      id
+      name
+      description
+      price
+      imageKey
+      bookings {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    startDate
+    endDate
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteBooking {
+  onDeleteBooking {
+    id
+    guestID
+    guest {
+      id
+      username
+      bookings {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    hotelID
+    hotel {
+      id
+      name
+      description
+      price
+      imageKey
+      bookings {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    startDate
+    endDate
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}

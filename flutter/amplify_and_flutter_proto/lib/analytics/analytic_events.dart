@@ -8,10 +8,6 @@ abstract class AbstractAnalyticsEvent {
       : value = AnalyticsEvent(eventName);
 
   AbstractAnalyticsEvent.withEvent({AnalyticsEvent event}) : this.value = event;
-
-  // factory AbstractAnalyticsEvent.something() {
-
-  // }
 }
 
 class LoginEvent extends AbstractAnalyticsEvent {

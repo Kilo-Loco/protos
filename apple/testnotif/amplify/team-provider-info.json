@@ -1,0 +1,27 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-testnotif-dev-200226-authRole",
+      "UnauthRoleArn": "arn:aws:iam::088987693321:role/amplify-testnotif-dev-200226-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::088987693321:role/amplify-testnotif-dev-200226-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-testnotif-dev-200226-deployment",
+      "UnauthRoleName": "amplify-testnotif-dev-200226-unauthRole",
+      "StackName": "amplify-testnotif-dev-200226",
+      "StackId": "arn:aws:cloudformation:us-west-2:088987693321:stack/amplify-testnotif-dev-200226/5991e8a0-1a5c-11eb-a3d5-06803cfd3e4f",
+      "AmplifyAppId": "d2dq28zdqso9ca"
+    },
+    "categories": {
+      "auth": {
+        "cognito7789ebdc": {}
+      },
+      "notifications": {
+        "Pinpoint": {
+          "Name": "testnotifObUFw-dev",
+          "Id": "18222a8b9a76484083f9beaf75ad271d",
+          "Region": "us-west-2"
+        }
+      }
+    }
+  }
+}
