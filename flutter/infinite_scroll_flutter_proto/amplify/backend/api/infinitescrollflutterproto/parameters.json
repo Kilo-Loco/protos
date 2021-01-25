@@ -1,0 +1,5 @@
+{
+  "AppSyncApiName": "infinitescrollflutterproto",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false
+}

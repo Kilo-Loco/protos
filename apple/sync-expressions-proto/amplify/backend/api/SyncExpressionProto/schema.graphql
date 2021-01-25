@@ -1,0 +1,12 @@
+enum Category {
+  THRILLER
+  ACTION
+  DRAMA
+}
+
+type TVSeries @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  rating: Int!
+  category: Category!
+}

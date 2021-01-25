@@ -1,0 +1,5 @@
+type Animal @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  emoji: String!
+  name: String!
+}

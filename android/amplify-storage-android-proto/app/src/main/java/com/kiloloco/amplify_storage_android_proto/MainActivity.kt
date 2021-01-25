@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val REQUEST_CODE = 100
-
         const val PHOTO_KEY = "firstPhoto.jpg"
     }
 
@@ -79,6 +78,7 @@ class MainActivity : AppCompatActivity() {
 
             val imageFile = File("${applicationContext.filesDir}/$PHOTO_KEY")
             imageFile.copyContentsOfUriToFile(imageUri!!)
+            imageFile.
 
             if (imageFile == null) {
                 Toast.makeText(this, "No file path", Toast.LENGTH_SHORT).show()
@@ -102,19 +102,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun getRealPathFromURI(contentURI: Uri): String? {
-        val result: String?
-        val cursor: Cursor? = contentResolver.query(contentURI, null, null, null, null)
-        if (cursor == null) {
-            result = contentURI.path
-        } else {
-            cursor.moveToFirst()
-            val idx: Int = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
-            result = cursor.getString(idx)
-            cursor.close()
-        }
-        return result
-    }
+//    private fun getRealPathFromURI(contentURI: Uri): String? {
+//        val result: String?
+//        val cursor: Cursor? = contentResolver.query(contentURI, null, null, null, null)
+//        if (cursor == null) {
+//            result = contentURI.path
+//        } else {
+//            cursor.moveToFirst()
+//            val idx: Int = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
+//            result = cursor.getString(idx)
+//            cursor.close()
+//        }
+//        return result
+//    }
 
     private fun downloadPhoto() {
         Amplify.Storage.downloadFile(
