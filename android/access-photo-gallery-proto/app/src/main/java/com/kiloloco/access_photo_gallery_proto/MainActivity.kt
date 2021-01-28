@@ -1,35 +1,33 @@
 package com.kiloloco.access_photo_gallery_proto
 
-import android.app.Activity
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.setContent
-import androidx.compose.ui.res.loadImageResource
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.kiloloco.access_photo_gallery_proto.ui.theme.AccessphotogalleryprotoTheme
+import dev.chrisbanes.accompanist.glide.GlideImage
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
-        const val IMAGE_RES_ID = 123
-        const val REQUEST_CODE = 1337
-    }
-
-    private lateinit var imageBitmap: Bitmap
+    private var imageUriState: MutableState<Uri?> = mutableStateOf(null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             AccessphotogalleryprotoTheme {
                 imageSelector()
@@ -37,31 +35,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE && data != null) {
-//            data.data?.let { imageUri = it }
-            val bitmap = BitmapFactory.decodeFile(data.dataString)
-            data.
-
-        }
+    private var resultLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        imageUriState.value = uri
     }
 
     @Composable
     private fun imageSelector() {
-        if (imageBitmap != null) {
-            ImageBitmap()
-            Image(bitmap = imageBitmap)
-        }
-        Button(onClick = ::openGallery) {
-            Text("Open Gallery")
-        }
-    }
+        Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                if (imageUriState.value != null) {
+                    GlideImage(data = imageUriState.value!!)
+                }
 
-    private fun openGallery() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent, REQUEST_CODE)
+                Button(
+                    onClick = { resultLauncher.launch("image/*") },
+                    modifier = Modifier.padding(vertical = 8.dp)
+                ) {
+                    Text("Open Gallery")
+                }
+            }
+        }
+
     }
 }

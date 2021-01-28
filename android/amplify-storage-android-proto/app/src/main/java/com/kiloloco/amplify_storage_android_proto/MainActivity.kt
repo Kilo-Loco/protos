@@ -78,12 +78,19 @@ class MainActivity : AppCompatActivity() {
 
             val imageFile = File("${applicationContext.filesDir}/$PHOTO_KEY")
             imageFile.copyContentsOfUriToFile(imageUri!!)
-            imageFile.
+
 
             if (imageFile == null) {
                 Toast.makeText(this, "No file path", Toast.LENGTH_SHORT).show()
                 return
             }
+
+            Amplify.Storage.uploadInputStream(
+                PHOTO_KEY,
+                contentResolver.openInputStream(imageUri!!)!!,
+                { _ -> Log.i("kyle", "uploaded input stream") },
+                { _ -> Log.i("kyle", "upload failed")}
+            )
 
             Amplify.Storage.uploadFile(
                 PHOTO_KEY,
