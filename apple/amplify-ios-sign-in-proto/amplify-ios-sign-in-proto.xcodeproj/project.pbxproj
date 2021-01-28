@@ -1,0 +1,423 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6ACD17DE562B41DD9A8CEA7E /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = D4B98CC0FE0C4431AAF7F6F5 /* awsconfiguration.json */; };
+		73CA83DB9EE0C6E026C2602B /* Pods_amplify_ios_sign_in_proto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81DBBBF86F40546270924750 /* Pods_amplify_ios_sign_in_proto.framework */; };
+		7CB9A13625C3640A00AD33ED /* amplify_ios_sign_in_protoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB9A13525C3640A00AD33ED /* amplify_ios_sign_in_protoApp.swift */; };
+		7CB9A13825C3640A00AD33ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB9A13725C3640A00AD33ED /* ContentView.swift */; };
+		7CB9A13A25C3640B00AD33ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB9A13925C3640B00AD33ED /* Assets.xcassets */; };
+		7CB9A13D25C3640B00AD33ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB9A13C25C3640B00AD33ED /* Preview Assets.xcassets */; };
+		7E44368A6BFD4646847D0B45 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 68CF392E49BB4352B9499551 /* amplifyconfiguration.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		42CCCF0A29034EF78DABF329 /* amplifytools.xcconfig */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.xcconfig; name = amplifytools.xcconfig; path = amplifytools.xcconfig; sourceTree = "<group>"; };
+		523547586DCEF5AD764AF48E /* Pods-amplify-ios-sign-in-proto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amplify-ios-sign-in-proto.debug.xcconfig"; path = "Target Support Files/Pods-amplify-ios-sign-in-proto/Pods-amplify-ios-sign-in-proto.debug.xcconfig"; sourceTree = "<group>"; };
+		6567CAAE572CAE4165F0BE99 /* Pods-amplify-ios-sign-in-proto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amplify-ios-sign-in-proto.release.xcconfig"; path = "Target Support Files/Pods-amplify-ios-sign-in-proto/Pods-amplify-ios-sign-in-proto.release.xcconfig"; sourceTree = "<group>"; };
+		68CF392E49BB4352B9499551 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = amplifyconfiguration.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		7CB9A13225C3640A00AD33ED /* amplify-ios-sign-in-proto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "amplify-ios-sign-in-proto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CB9A13525C3640A00AD33ED /* amplify_ios_sign_in_protoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = amplify_ios_sign_in_protoApp.swift; sourceTree = "<group>"; };
+		7CB9A13725C3640A00AD33ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7CB9A13925C3640B00AD33ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7CB9A13C25C3640B00AD33ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7CB9A13E25C3640B00AD33ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81DBBBF86F40546270924750 /* Pods_amplify_ios_sign_in_proto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_amplify_ios_sign_in_proto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4B98CC0FE0C4431AAF7F6F5 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = awsconfiguration.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7CB9A12F25C3640A00AD33ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73CA83DB9EE0C6E026C2602B /* Pods_amplify_ios_sign_in_proto.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45EC31ACEBE82E9F8A4BEA65 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				523547586DCEF5AD764AF48E /* Pods-amplify-ios-sign-in-proto.debug.xcconfig */,
+				6567CAAE572CAE4165F0BE99 /* Pods-amplify-ios-sign-in-proto.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		65810447BA5347A6A467D816 /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				42CCCF0A29034EF78DABF329 /* amplifytools.xcconfig */,
+				68CF392E49BB4352B9499551 /* amplifyconfiguration.json */,
+				D4B98CC0FE0C4431AAF7F6F5 /* awsconfiguration.json */,
+			);
+			name = AmplifyConfig;
+			path = .;
+			sourceTree = "<group>";
+		};
+		7CB9A12925C3640A00AD33ED = {
+			isa = PBXGroup;
+			children = (
+				65810447BA5347A6A467D816 /* AmplifyConfig */,
+				7CB9A13425C3640A00AD33ED /* amplify-ios-sign-in-proto */,
+				7CB9A13325C3640A00AD33ED /* Products */,
+				45EC31ACEBE82E9F8A4BEA65 /* Pods */,
+				9809B4AA87C35825A9806D79 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7CB9A13325C3640A00AD33ED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7CB9A13225C3640A00AD33ED /* amplify-ios-sign-in-proto.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7CB9A13425C3640A00AD33ED /* amplify-ios-sign-in-proto */ = {
+			isa = PBXGroup;
+			children = (
+				7CB9A13525C3640A00AD33ED /* amplify_ios_sign_in_protoApp.swift */,
+				7CB9A13725C3640A00AD33ED /* ContentView.swift */,
+				7CB9A13925C3640B00AD33ED /* Assets.xcassets */,
+				7CB9A13E25C3640B00AD33ED /* Info.plist */,
+				7CB9A13B25C3640B00AD33ED /* Preview Content */,
+			);
+			path = "amplify-ios-sign-in-proto";
+			sourceTree = "<group>";
+		};
+		7CB9A13B25C3640B00AD33ED /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7CB9A13C25C3640B00AD33ED /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9809B4AA87C35825A9806D79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81DBBBF86F40546270924750 /* Pods_amplify_ios_sign_in_proto.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7CB9A13125C3640A00AD33ED /* amplify-ios-sign-in-proto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CB9A14125C3640B00AD33ED /* Build configuration list for PBXNativeTarget "amplify-ios-sign-in-proto" */;
+			buildPhases = (
+				9ECC1272CFCA1AC478203243 /* [CP] Check Pods Manifest.lock */,
+				7CB9A12E25C3640A00AD33ED /* Sources */,
+				7CB9A12F25C3640A00AD33ED /* Frameworks */,
+				7CB9A13025C3640A00AD33ED /* Resources */,
+				657806017812A8422017958E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "amplify-ios-sign-in-proto";
+			productName = "amplify-ios-sign-in-proto";
+			productReference = 7CB9A13225C3640A00AD33ED /* amplify-ios-sign-in-proto.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7CB9A12A25C3640A00AD33ED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					7CB9A13125C3640A00AD33ED = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = 7CB9A12D25C3640A00AD33ED /* Build configuration list for PBXProject "amplify-ios-sign-in-proto" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7CB9A12925C3640A00AD33ED;
+			productRefGroup = 7CB9A13325C3640A00AD33ED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7CB9A13125C3640A00AD33ED /* amplify-ios-sign-in-proto */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7CB9A13025C3640A00AD33ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CB9A13D25C3640B00AD33ED /* Preview Assets.xcassets in Resources */,
+				7CB9A13A25C3640B00AD33ED /* Assets.xcassets in Resources */,
+				7E44368A6BFD4646847D0B45 /* amplifyconfiguration.json in Resources */,
+				6ACD17DE562B41DD9A8CEA7E /* awsconfiguration.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		657806017812A8422017958E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-amplify-ios-sign-in-proto/Pods-amplify-ios-sign-in-proto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-amplify-ios-sign-in-proto/Pods-amplify-ios-sign-in-proto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-amplify-ios-sign-in-proto/Pods-amplify-ios-sign-in-proto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9ECC1272CFCA1AC478203243 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-amplify-ios-sign-in-proto-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7CB9A12E25C3640A00AD33ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CB9A13825C3640A00AD33ED /* ContentView.swift in Sources */,
+				7CB9A13625C3640A00AD33ED /* amplify_ios_sign_in_protoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7CB9A13F25C3640B00AD33ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7CB9A14025C3640B00AD33ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7CB9A14225C3640B00AD33ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 523547586DCEF5AD764AF48E /* Pods-amplify-ios-sign-in-proto.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"amplify-ios-sign-in-proto/Preview Content\"";
+				DEVELOPMENT_TEAM = 5K99777NES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "amplify-ios-sign-in-proto/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kiloloco.amplify-ios-sign-in-proto";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7CB9A14325C3640B00AD33ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6567CAAE572CAE4165F0BE99 /* Pods-amplify-ios-sign-in-proto.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"amplify-ios-sign-in-proto/Preview Content\"";
+				DEVELOPMENT_TEAM = 5K99777NES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "amplify-ios-sign-in-proto/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kiloloco.amplify-ios-sign-in-proto";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7CB9A12D25C3640A00AD33ED /* Build configuration list for PBXProject "amplify-ios-sign-in-proto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CB9A13F25C3640B00AD33ED /* Debug */,
+				7CB9A14025C3640B00AD33ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7CB9A14125C3640B00AD33ED /* Build configuration list for PBXNativeTarget "amplify-ios-sign-in-proto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CB9A14225C3640B00AD33ED /* Debug */,
+				7CB9A14325C3640B00AD33ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7CB9A12A25C3640A00AD33ED /* Project object */;
+}
