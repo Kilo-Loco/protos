@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0270F650574F42B8AA9CCBF7 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = C6D29826226B4F959DB4841D /* awsconfiguration.json */; };
+		385D7D0BC53451B586B5A859 /* Pods_amplify_ios_multifactor_auth_proto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2D592287E8F071331DFF365 /* Pods_amplify_ios_multifactor_auth_proto.framework */; };
+		547B31462CA9437889927D28 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = B1AF87F9D3584213A464BEF8 /* amplifyconfiguration.json */; };
 		7CB9A17A25C3750900AD33ED /* amplify_ios_multifactor_auth_protoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB9A17925C3750900AD33ED /* amplify_ios_multifactor_auth_protoApp.swift */; };
 		7CB9A17C25C3750900AD33ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB9A17B25C3750900AD33ED /* ContentView.swift */; };
 		7CB9A17E25C3750900AD33ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB9A17D25C3750900AD33ED /* Assets.xcassets */; };
@@ -14,12 +17,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		521636205BF54974BE35F47D /* amplifytools.xcconfig */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.xcconfig; path = amplifytools.xcconfig; sourceTree = "<group>"; };
+		65BB27ACE7701B54EEEC6C95 /* Pods-amplify-ios-multifactor-auth-proto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amplify-ios-multifactor-auth-proto.release.xcconfig"; path = "Target Support Files/Pods-amplify-ios-multifactor-auth-proto/Pods-amplify-ios-multifactor-auth-proto.release.xcconfig"; sourceTree = "<group>"; };
 		7CB9A17625C3750900AD33ED /* amplify-ios-multifactor-auth-proto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "amplify-ios-multifactor-auth-proto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB9A17925C3750900AD33ED /* amplify_ios_multifactor_auth_protoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = amplify_ios_multifactor_auth_protoApp.swift; sourceTree = "<group>"; };
 		7CB9A17B25C3750900AD33ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7CB9A17D25C3750900AD33ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CB9A18025C3750900AD33ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7CB9A18225C3750900AD33ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1AF87F9D3584213A464BEF8 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		C6D29826226B4F959DB4841D /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = awsconfiguration.json; sourceTree = "<group>"; };
+		DFB8DB897F403C69B52A9479 /* Pods-amplify-ios-multifactor-auth-proto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amplify-ios-multifactor-auth-proto.debug.xcconfig"; path = "Target Support Files/Pods-amplify-ios-multifactor-auth-proto/Pods-amplify-ios-multifactor-auth-proto.debug.xcconfig"; sourceTree = "<group>"; };
+		F2D592287E8F071331DFF365 /* Pods_amplify_ios_multifactor_auth_proto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_amplify_ios_multifactor_auth_proto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +36,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				385D7D0BC53451B586B5A859 /* Pods_amplify_ios_multifactor_auth_proto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		047761096F0F4AE0AEC5EF36 /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				521636205BF54974BE35F47D /* amplifytools.xcconfig */,
+				B1AF87F9D3584213A464BEF8 /* amplifyconfiguration.json */,
+				C6D29826226B4F959DB4841D /* awsconfiguration.json */,
+			);
+			name = AmplifyConfig;
+			path = .;
+			sourceTree = "<group>";
+		};
+		641EFF96FA833D222A6D08BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DFB8DB897F403C69B52A9479 /* Pods-amplify-ios-multifactor-auth-proto.debug.xcconfig */,
+				65BB27ACE7701B54EEEC6C95 /* Pods-amplify-ios-multifactor-auth-proto.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7CB9A16D25C3750900AD33ED = {
 			isa = PBXGroup;
 			children = (
+				047761096F0F4AE0AEC5EF36 /* AmplifyConfig */,
 				7CB9A17825C3750900AD33ED /* amplify-ios-multifactor-auth-proto */,
 				7CB9A17725C3750900AD33ED /* Products */,
+				641EFF96FA833D222A6D08BA /* Pods */,
+				ADCCD41EB80A7229AEFCD0FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +103,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		ADCCD41EB80A7229AEFCD0FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2D592287E8F071331DFF365 /* Pods_amplify_ios_multifactor_auth_proto.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -76,9 +118,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CB9A18525C3750900AD33ED /* Build configuration list for PBXNativeTarget "amplify-ios-multifactor-auth-proto" */;
 			buildPhases = (
+				7723EA523489D78A9E3A5CD1 /* [CP] Check Pods Manifest.lock */,
 				7CB9A17225C3750900AD33ED /* Sources */,
 				7CB9A17325C3750900AD33ED /* Frameworks */,
 				7CB9A17425C3750900AD33ED /* Resources */,
+				18755F670D9DF8F048B11098 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,10 +172,54 @@
 			files = (
 				7CB9A18125C3750900AD33ED /* Preview Assets.xcassets in Resources */,
 				7CB9A17E25C3750900AD33ED /* Assets.xcassets in Resources */,
+				547B31462CA9437889927D28 /* amplifyconfiguration.json in Resources */,
+				0270F650574F42B8AA9CCBF7 /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18755F670D9DF8F048B11098 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-amplify-ios-multifactor-auth-proto/Pods-amplify-ios-multifactor-auth-proto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-amplify-ios-multifactor-auth-proto/Pods-amplify-ios-multifactor-auth-proto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-amplify-ios-multifactor-auth-proto/Pods-amplify-ios-multifactor-auth-proto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7723EA523489D78A9E3A5CD1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-amplify-ios-multifactor-auth-proto-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7CB9A17225C3750900AD33ED /* Sources */ = {
@@ -264,6 +352,7 @@
 		};
 		7CB9A18625C3750900AD33ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFB8DB897F403C69B52A9479 /* Pods-amplify-ios-multifactor-auth-proto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -286,6 +375,7 @@
 		};
 		7CB9A18725C3750900AD33ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65BB27ACE7701B54EEEC6C95 /* Pods-amplify-ios-multifactor-auth-proto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

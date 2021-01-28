@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "amplifyiosmultifacto14d28a7614d28a76": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
