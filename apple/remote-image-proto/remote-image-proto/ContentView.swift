@@ -7,10 +7,33 @@
 
 import SwiftUI
 
+struct Post: Identifiable {
+    let id = UUID().uuidString
+    let imageKey = "https://import-bucket-proto.s3-us-west-2.amazonaws.com/public/amplify-logo.png"
+}
+
 struct ContentView: View {
+    
+    @State var posts = [Post()]
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            ScrollView {
+                LazyVStack {
+                    ForEach(posts) { post in
+                        RemoteImage(post.imageKey)
+                            .frame(width: 250, height: 250)
+                    }
+                }
+            }
+            
+            Button("Get more images", action: getMoreImages)
+        }
+            
+    }
+    
+    func getMoreImages() {
+        posts = [Post(), Post(), Post(), Post(), Post()]
     }
 }
 
