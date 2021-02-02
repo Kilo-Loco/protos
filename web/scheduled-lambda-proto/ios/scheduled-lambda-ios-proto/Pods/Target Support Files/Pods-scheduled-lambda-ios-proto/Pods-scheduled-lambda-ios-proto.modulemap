@@ -1,0 +1,6 @@
+framework module Pods_scheduled_lambda_ios_proto {
+  umbrella header "Pods-scheduled-lambda-ios-proto-umbrella.h"
+
+  export *
+  module * { export * }
+}

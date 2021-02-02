@@ -1,0 +1,8 @@
+{
+  "providers": [
+    "awscloudformation"
+  ],
+  "projectName": "scheduled-lambda-ios-proto",
+  "version": "3.0",
+  "frontend": "ios"
+}

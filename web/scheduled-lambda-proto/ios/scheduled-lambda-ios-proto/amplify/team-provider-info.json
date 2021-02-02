@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-scheduledlambdaiospr-staging-24728-authRole",
+      "UnauthRoleArn": "arn:aws:iam::088987693321:role/amplify-scheduledlambdaiospr-staging-24728-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::088987693321:role/amplify-scheduledlambdaiospr-staging-24728-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-scheduledlambdaiospr-staging-24728-deployment",
+      "UnauthRoleName": "amplify-scheduledlambdaiospr-staging-24728-unauthRole",
+      "StackName": "amplify-scheduledlambdaiospr-staging-24728",
+      "StackId": "arn:aws:cloudformation:us-west-2:088987693321:stack/amplify-scheduledlambdaiospr-staging-24728/fdf613a0-6500-11eb-be15-0238bddd7185",
+      "AmplifyAppId": "d14u478vpi845x"
+    }
+  }
+}

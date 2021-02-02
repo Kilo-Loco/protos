@@ -3,23 +3,39 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551115FD7C82BF9542BCA922 /* Pods_scheduled_lambda_ios_proto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8291BCCB40541AC85F31B2 /* Pods_scheduled_lambda_ios_proto.framework */; };
 		7C85430525C8F2A400CE123F /* scheduled_lambda_ios_protoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C85430425C8F2A400CE123F /* scheduled_lambda_ios_protoApp.swift */; };
 		7C85430725C8F2A400CE123F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C85430625C8F2A400CE123F /* ContentView.swift */; };
 		7C85430925C8F2A500CE123F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C85430825C8F2A500CE123F /* Assets.xcassets */; };
 		7C85430C25C8F2A500CE123F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C85430B25C8F2A500CE123F /* Preview Assets.xcassets */; };
+		7C85432225C8F6B200CE123F /* Stock+Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C85431F25C8F6B200CE123F /* Stock+Schema.swift */; };
+		7C85432325C8F6B200CE123F /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C85432025C8F6B200CE123F /* Stock.swift */; };
+		7C85432425C8F6B200CE123F /* AmplifyModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C85432125C8F6B200CE123F /* AmplifyModels.swift */; };
+		E783B347BE33499C855BFD12 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 9055F0998A6E442DBB793BA8 /* amplifyconfiguration.json */; };
+		FBF2372280B741319C42C6DD /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 446D41E43340405A8B4C0EC4 /* awsconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		446D41E43340405A8B4C0EC4 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = awsconfiguration.json; sourceTree = "<group>"; };
+		5418A549E1A8840A7085D215 /* Pods-scheduled-lambda-ios-proto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-scheduled-lambda-ios-proto.debug.xcconfig"; path = "Target Support Files/Pods-scheduled-lambda-ios-proto/Pods-scheduled-lambda-ios-proto.debug.xcconfig"; sourceTree = "<group>"; };
+		792A8A42EEB57F2AA055D126 /* Pods-scheduled-lambda-ios-proto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-scheduled-lambda-ios-proto.release.xcconfig"; path = "Target Support Files/Pods-scheduled-lambda-ios-proto/Pods-scheduled-lambda-ios-proto.release.xcconfig"; sourceTree = "<group>"; };
 		7C85430125C8F2A400CE123F /* scheduled-lambda-ios-proto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "scheduled-lambda-ios-proto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C85430425C8F2A400CE123F /* scheduled_lambda_ios_protoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scheduled_lambda_ios_protoApp.swift; sourceTree = "<group>"; };
 		7C85430625C8F2A400CE123F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7C85430825C8F2A500CE123F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C85430B25C8F2A500CE123F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C85430D25C8F2A500CE123F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C85431F25C8F6B200CE123F /* Stock+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Stock+Schema.swift"; path = "amplify/generated/models/Stock+Schema.swift"; sourceTree = SOURCE_ROOT; };
+		7C85432025C8F6B200CE123F /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stock.swift; path = amplify/generated/models/Stock.swift; sourceTree = SOURCE_ROOT; };
+		7C85432125C8F6B200CE123F /* AmplifyModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmplifyModels.swift; path = amplify/generated/models/AmplifyModels.swift; sourceTree = SOURCE_ROOT; };
+		9055F0998A6E442DBB793BA8 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		A3C1F09E7B6E40C682473B5A /* schema.graphql */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text; name = schema.graphql; path = amplify/backend/api/amplifyDatasource/schema.graphql; sourceTree = "<group>"; };
+		DB8291BCCB40541AC85F31B2 /* Pods_scheduled_lambda_ios_proto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_scheduled_lambda_ios_proto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECDEC6FF62424CD4B01EA96C /* amplifytools.xcconfig */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.xcconfig; path = amplifytools.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +43,50 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551115FD7C82BF9542BCA922 /* Pods_scheduled_lambda_ios_proto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03F7FEB47EF05030AD0021FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5418A549E1A8840A7085D215 /* Pods-scheduled-lambda-ios-proto.debug.xcconfig */,
+				792A8A42EEB57F2AA055D126 /* Pods-scheduled-lambda-ios-proto.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		14A389A623BF2630AEA54BE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB8291BCCB40541AC85F31B2 /* Pods_scheduled_lambda_ios_proto.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		592E6A7BF34F4C0DA0F924E1 /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				ECDEC6FF62424CD4B01EA96C /* amplifytools.xcconfig */,
+				9055F0998A6E442DBB793BA8 /* amplifyconfiguration.json */,
+				446D41E43340405A8B4C0EC4 /* awsconfiguration.json */,
+				A3C1F09E7B6E40C682473B5A /* schema.graphql */,
+			);
+			name = AmplifyConfig;
+			path = .;
+			sourceTree = "<group>";
+		};
 		7C8542F825C8F2A400CE123F = {
 			isa = PBXGroup;
 			children = (
+				592E6A7BF34F4C0DA0F924E1 /* AmplifyConfig */,
 				7C85430325C8F2A400CE123F /* scheduled-lambda-ios-proto */,
 				7C85430225C8F2A400CE123F /* Products */,
+				03F7FEB47EF05030AD0021FD /* Pods */,
+				14A389A623BF2630AEA54BE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,6 +101,9 @@
 		7C85430325C8F2A400CE123F /* scheduled-lambda-ios-proto */ = {
 			isa = PBXGroup;
 			children = (
+				7C85432125C8F6B200CE123F /* AmplifyModels.swift */,
+				7C85432025C8F6B200CE123F /* Stock.swift */,
+				7C85431F25C8F6B200CE123F /* Stock+Schema.swift */,
 				7C85430425C8F2A400CE123F /* scheduled_lambda_ios_protoApp.swift */,
 				7C85430625C8F2A400CE123F /* ContentView.swift */,
 				7C85430825C8F2A500CE123F /* Assets.xcassets */,
@@ -76,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C85431025C8F2A500CE123F /* Build configuration list for PBXNativeTarget "scheduled-lambda-ios-proto" */;
 			buildPhases = (
+				A2884E144106C597A3491FA9 /* [CP] Check Pods Manifest.lock */,
 				7C8542FD25C8F2A400CE123F /* Sources */,
 				7C8542FE25C8F2A400CE123F /* Frameworks */,
 				7C8542FF25C8F2A400CE123F /* Resources */,
+				B706392D17345A054A730A02 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,17 +182,64 @@
 			files = (
 				7C85430C25C8F2A500CE123F /* Preview Assets.xcassets in Resources */,
 				7C85430925C8F2A500CE123F /* Assets.xcassets in Resources */,
+				E783B347BE33499C855BFD12 /* amplifyconfiguration.json in Resources */,
+				FBF2372280B741319C42C6DD /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A2884E144106C597A3491FA9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-scheduled-lambda-ios-proto-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B706392D17345A054A730A02 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-scheduled-lambda-ios-proto/Pods-scheduled-lambda-ios-proto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-scheduled-lambda-ios-proto/Pods-scheduled-lambda-ios-proto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-scheduled-lambda-ios-proto/Pods-scheduled-lambda-ios-proto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7C8542FD25C8F2A400CE123F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C85432425C8F6B200CE123F /* AmplifyModels.swift in Sources */,
 				7C85430725C8F2A400CE123F /* ContentView.swift in Sources */,
+				7C85432225C8F6B200CE123F /* Stock+Schema.swift in Sources */,
+				7C85432325C8F6B200CE123F /* Stock.swift in Sources */,
 				7C85430525C8F2A400CE123F /* scheduled_lambda_ios_protoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +365,7 @@
 		};
 		7C85431125C8F2A500CE123F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5418A549E1A8840A7085D215 /* Pods-scheduled-lambda-ios-proto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -286,6 +388,7 @@
 		};
 		7C85431225C8F2A500CE123F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 792A8A42EEB57F2AA055D126 /* Pods-scheduled-lambda-ios-proto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
