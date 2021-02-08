@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
+import 'board_tile.dart';
+import 'cell_state.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,99 +12,128 @@ class MyApp extends StatefulWidget {
   State<StatefulWidget> createState() => _MyAppState();
 }
 
-enum CellState { EMPTY, CROSS, CIRCLE }
-
-class BoardTile extends StatelessWidget {
-  final int index;
-  final Function(int) selectedIndex;
-
-  BoardTile({Key key, this.index, this.selectedIndex}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return FlatButton(
-        onPressed: () => selectedIndex(index), child: Icon(Icons.close));
-  }
-}
-
 class _MyAppState extends State<MyApp> {
-  List<CellState> boardState = List.filled(9, CellState.EMPTY);
+  final navigatorKey = GlobalKey<NavigatorState>();
+  List<CellState> _boardState = List.filled(9, CellState.EMPTY);
 
-  CellState currentTurn = CellState.CROSS;
+  CellState _currentTurn = CellState.CROSS;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       home: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  BoardTile(index: 0, selectedIndex: updateWithSelection),
-                  BoardTile(index: 1, selectedIndex: updateWithSelection),
-                  BoardTile(index: 2, selectedIndex: updateWithSelection)
-                ],
-              ),
-              Divider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  BoardTile(index: 3, selectedIndex: updateWithSelection),
-                  BoardTile(index: 4, selectedIndex: updateWithSelection),
-                  BoardTile(index: 5, selectedIndex: updateWithSelection)
-                ],
-              ),
-              Divider(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  BoardTile(index: 6, selectedIndex: updateWithSelection),
-                  BoardTile(index: 7, selectedIndex: updateWithSelection),
-                  BoardTile(index: 8, selectedIndex: updateWithSelection)
-                ],
-              ),
-            ],
-          ),
+          body: Center(
+        child: Stack(
+          alignment: Alignment.center,
+          children: [Image.asset('images/board.png'), _boardTiles()],
         ),
-      ),
+      )),
     );
   }
 
-  Widget imageForStateAtIndex(int index) {
-    final state = boardState[index];
-    Widget widget;
-    switch (state) {
-      case CellState.EMPTY:
-        {
-          widget = Container(decoration: BoxDecoration(border: Border.all()));
-        }
-        break;
-
-      case CellState.CROSS:
-        {
-          widget = Icon(Icons.close);
-        }
-        break;
-
-      case CellState.CIRCLE:
-        {
-          widget = Icon(Icons.trip_origin);
-        }
-    }
-    return widget;
+  Widget _boardTiles() {
+    return Builder(builder: (context) {
+      final boardDimension = MediaQuery.of(context).size.width;
+      final tileDimension = boardDimension / 3;
+      return Container(
+        width: boardDimension,
+        height: boardDimension,
+        child: Column(
+            children: chunk(_boardState, 3).asMap().entries.map((chunkEntry) {
+          final chunkIndex = chunkEntry.key;
+          final cellStateChunk = chunkEntry.value;
+          return Row(
+              children: cellStateChunk.asMap().entries.map((innerEntry) {
+            final innerIndex = innerEntry.key;
+            final cellState = innerEntry.value;
+            final tileIndex = (chunkIndex * 3) + innerIndex;
+            return BoardTile(
+              cellState: cellState,
+              dimension: tileDimension,
+              onPressed: () => _updateWithSelection(tileIndex),
+            );
+          }).toList());
+        }).toList()),
+      );
+    });
   }
 
-  void updateWithSelection(int selectedIndex) {
-    if (boardState[selectedIndex] == CellState.EMPTY) {
+  void _updateWithSelection(int selectedIndex) {
+    if (_boardState[selectedIndex] == CellState.EMPTY) {
       setState(() {
-        boardState[selectedIndex] = currentTurn;
-        currentTurn = boardState[selectedIndex] == CellState.CROSS
+        _boardState[selectedIndex] = _currentTurn;
+        _currentTurn = _boardState[selectedIndex] == CellState.CROSS
             ? CellState.CIRCLE
             : CellState.CROSS;
       });
+
+      final winner = _findWinner();
+      if (winner != null) {
+        print('Found winner $winner');
+        _showWinnerDialog(winner);
+      }
     }
+  }
+
+  CellState _findWinner() {
+    CellState Function(int, int, int) winnerForMatch = (a, b, c) {
+      if (_boardState[a] != CellState.EMPTY) {
+        if ((_boardState[a] == _boardState[b]) &&
+            (_boardState[b] == _boardState[c])) {
+          return _boardState[a];
+        }
+      }
+      return null;
+    };
+
+    final checks = [
+      winnerForMatch(0, 1, 2),
+      winnerForMatch(3, 4, 5),
+      winnerForMatch(6, 7, 8),
+      winnerForMatch(0, 3, 6),
+      winnerForMatch(1, 4, 7),
+      winnerForMatch(2, 5, 8),
+      winnerForMatch(0, 4, 8),
+      winnerForMatch(2, 4, 6)
+    ];
+
+    CellState winner;
+    for (int i = 0; i < checks.length; i++) {
+      if (checks[i] != null) {
+        winner = checks[i];
+        break;
+      }
+    }
+
+    return winner;
+  }
+
+  void _showWinnerDialog(CellState cellState) {
+    final context = navigatorKey.currentState.overlay.context;
+    showDialog(
+        context: context,
+        builder: (_) {
+          return AlertDialog(
+            title: Text('Winner!'),
+            content: Image.asset(
+                cellState == CellState.CROSS ? 'images/x.png' : 'images/o.png'),
+            actions: [
+              FlatButton(
+                  onPressed: () {
+                    _resetGame();
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('New Game'))
+            ],
+          );
+        });
+  }
+
+  void _resetGame() {
+    setState(() {
+      _currentTurn = CellState.CROSS;
+      _boardState = List.filled(9, CellState.EMPTY);
+    });
   }
 }
