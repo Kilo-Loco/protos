@@ -7,6 +7,13 @@ void main() {
   runApp(MyApp());
 }
 
+class Article {
+  final String title;
+  final String publicationID;
+
+  Article({this.title, this.publicationID});
+}
+
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MyAppState();
@@ -14,7 +21,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final navigatorKey = GlobalKey<NavigatorState>();
-  List<CellState> _boardState = List.filled(9, CellState.EMPTY);
+  List<CellState> _boardState = List.filled(0, CellState.EMPTY);
 
   CellState _currentTurn = CellState.CROSS;
 
@@ -33,6 +40,10 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget _boardTiles() {
+    if (_boardState.isNotEmpty) {
+      print("Hello ${_boardState.first}");
+    }
+
     return Builder(builder: (context) {
       final boardDimension = MediaQuery.of(context).size.width;
       final tileDimension = boardDimension / 3;
