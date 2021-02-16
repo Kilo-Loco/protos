@@ -29,8 +29,8 @@ class _PostsViewState extends State<PostsView> {
               return Card(
                 child: ListTile(
                   title: Text(posts[index].title),
-                  onTap: () => BlocProvider.of<NavCubit>(context)
-                      .showPostDetails(posts[index]),
+                  onTap: () => BlocProvider.of<NavBloc>(context)
+                      .add(PostDetailsEvent(post: posts[index])),
                 ),
               );
             });

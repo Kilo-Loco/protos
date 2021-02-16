@@ -8,3 +8,36 @@ class NavCubit extends Cubit<Post> {
 
   void popToPosts() => emit(null);
 }
+
+abstract class NavEvent {}
+
+class PostsEvent extends NavEvent {}
+
+class PostDetailsEvent extends NavEvent {
+  final Post post;
+
+  PostDetailsEvent({this.post});
+}
+
+abstract class NavState {}
+
+class PostsState extends NavState {}
+
+class PostDetailsState extends NavState {
+  final Post post;
+
+  PostDetailsState({this.post});
+}
+
+class NavBloc extends Bloc<NavEvent, NavState> {
+  NavBloc() : super(PostsState());
+
+  @override
+  Stream<NavState> mapEventToState(NavEvent event) async* {
+    if (event is PostsEvent) {
+      yield PostsState();
+    } else if (event is PostDetailsEvent) {
+      yield PostDetailsState(post: event.post);
+    }
+  }
+}
