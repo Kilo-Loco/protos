@@ -28,12 +28,13 @@ class PokedexView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final pokemonListing = state.pokemonList[index];
                   return Card(
+                      color: Theme.of(context).accentColor,
                       child: GridTile(
-                    child: Column(children: [
-                      Image.network(pokemonListing.imagePath),
-                      Text(pokemonListing.name)
-                    ]),
-                  ));
+                        child: Column(children: [
+                          Image.network(pokemonListing.imagePath),
+                          Text(pokemonListing.name)
+                        ]),
+                      ));
                 });
           } else if (state is PokemonPageLoadFailure) {
             showDialog(

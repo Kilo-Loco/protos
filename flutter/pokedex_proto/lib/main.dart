@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokedex_proto/bloc/nav_cubit.dart';
 import 'package:pokedex_proto/bloc/pokemon_bloc.dart';
 import 'package:pokedex_proto/bloc/pokemon_event.dart';
 
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
       home: MultiBlocProvider(providers: [
         BlocProvider(
             create: (context) =>
-                PokemonPageBloc()..add(PokemonPageRequested(page: 0)))
+                PokemonPageBloc()..add(PokemonPageRequested(page: 0))),
+        BlocProvider(create: (context) => NavCubit())
       ], child: AppNavigator()),
     );
   }
