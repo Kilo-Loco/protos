@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokedex_proto/bloc/nav_cubit.dart';
 import 'package:pokedex_proto/bloc/pokemon_bloc.dart';
-
+import 'string_extensions.dart';
 import 'bloc/pokemon_state.dart';
 
 class PokedexView extends StatelessWidget {
@@ -27,14 +28,17 @@ class PokedexView extends StatelessWidget {
                 itemCount: state.pokemonList.length,
                 itemBuilder: (context, index) {
                   final pokemonListing = state.pokemonList[index];
-                  return Card(
-                      color: Theme.of(context).accentColor,
-                      child: GridTile(
-                        child: Column(children: [
-                          Image.network(pokemonListing.imagePath),
-                          Text(pokemonListing.name)
-                        ]),
-                      ));
+                  return GestureDetector(
+                    child: Card(
+                        child: GridTile(
+                      child: Column(children: [
+                        Image.network(pokemonListing.imagePath),
+                        Text(pokemonListing.name.toCapitalized())
+                      ]),
+                    )),
+                    onTap: () => BlocProvider.of<NavCubit>(context)
+                        .showPokemonDetails(state.pokemonList[index].id),
+                  );
                 });
           } else if (state is PokemonPageLoadFailure) {
             showDialog(
