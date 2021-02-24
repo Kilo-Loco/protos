@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-globalmessagingproto-staging-164246-authRole",
+      "UnauthRoleArn": "arn:aws:iam::088987693321:role/amplify-globalmessagingproto-staging-164246-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::088987693321:role/amplify-globalmessagingproto-staging-164246-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-globalmessagingproto-staging-164246-deployment",
+      "UnauthRoleName": "amplify-globalmessagingproto-staging-164246-unauthRole",
+      "StackName": "amplify-globalmessagingproto-staging-164246",
+      "StackId": "arn:aws:cloudformation:us-west-2:088987693321:stack/amplify-globalmessagingproto-staging-164246/53bae340-76bf-11eb-8d46-02cff3de376d",
+      "AmplifyAppId": "d3auomr12jf8kx"
+    },
+    "categories": {
+      "auth": {
+        "globalmessagingprotoe6083b93": {}
+      }
+    }
+  }
+}
