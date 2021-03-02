@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:photo_gallery_proto/login_cubit.dart';
+import 'package:photo_gallery_proto/navigator_cubit.dart';
 
 import 'auth_repository.dart';
 
@@ -39,7 +40,13 @@ class _LoginViewState extends State<LoginView> {
             );
         }
       },
-      child: _loginForm(),
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          _loginForm(),
+          _showSignUpButton(),
+        ],
+      ),
     );
   }
 
@@ -91,6 +98,13 @@ class _LoginViewState extends State<LoginView> {
           _loginButton(),
         ],
       ),
+    );
+  }
+
+  Widget _showSignUpButton() {
+    return TextButton(
+      onPressed: () => BlocProvider.of<NavigatorCubit>(context).showSignUp(),
+      child: Text('Don\'t have an account? Sign up.'),
     );
   }
 }
