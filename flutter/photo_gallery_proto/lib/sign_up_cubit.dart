@@ -1,18 +1,25 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:photo_gallery_proto/auth_repository.dart';
 
-abstract class SignUpState {}
-
-class SignUpInitial extends SignUpState {}
-
-class SignUpSuccess extends SignUpState {}
-
-class SignUpFailed extends SignUpState {}
+enum SignUpState { initial, attemptingSignUp, signUpSuccess, signUpFailure }
 
 class SignUpCubit extends Cubit<SignUpState> {
-  final AuthRepository authRepository;
+  final AuthRepository authRepo;
 
-  SignUpCubit({this.authRepository}) : super(SignUpInitial());
+  SignUpCubit({this.authRepo}) : super(SignUpState.initial);
 
-  void signUp({String username, String email, String password}) {}
+  Future<void> signUp({String username, String email, String password}) async {
+    emit(SignUpState.attemptingSignUp);
+
+    try {
+      await authRepo.signUp(
+        username: username,
+        email: email,
+        password: password,
+      );
+      emit(SignUpState.signUpSuccess);
+    } on Exception {
+      emit(SignUpState.signUpFailure);
+    }
+  }
 }
