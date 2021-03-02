@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "photogalleryprotoe6416e80": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

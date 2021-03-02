@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify.dart';
 
@@ -20,6 +19,19 @@ class AuthRepository {
         password: password,
         options: options,
       );
-    } on Exception {}
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<void> login(String username, String password) async {
+    try {
+      await Amplify.Auth.signIn(
+        username: username,
+        password: password,
+      );
+    } catch (e) {
+      throw e;
+    }
   }
 }
