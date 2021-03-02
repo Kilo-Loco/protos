@@ -92,17 +92,19 @@ class _SignUpViewState extends State<SignUpView> {
     );
   }
 
-  Widget _loginButton() {
+  Widget _signUpButton() {
     return BlocBuilder<SignUpCubit, SignUpState>(
       builder: (context, state) {
         return state == SignUpState.attemptingSignUp
             ? CircularProgressIndicator()
             : ElevatedButton(
-                child: Text('Login'),
-                onPressed: () => BlocProvider.of<SignUpCubit>(context).signUp(
-                    username: _usernameController.text,
-                    email: _emailController.text,
-                    password: _passwordController.text));
+                child: Text('Sign Up'),
+                onPressed: () => BlocProvider.of<NavigatorCubit>(context)
+                    .showConfirmSignUp());
+        // onPressed: () => BlocProvider.of<SignUpCubit>(context).signUp(
+        //     username: _usernameController.text,
+        //     email: _emailController.text,
+        //     password: _passwordController.text));
       },
     );
   }
@@ -116,7 +118,7 @@ class _SignUpViewState extends State<SignUpView> {
           _usernameField(),
           _emailField(),
           _passwordField(),
-          _loginButton(),
+          _signUpButton(),
         ],
       ),
     );

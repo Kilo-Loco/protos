@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:photo_gallery_proto/auth_repository.dart';
+import 'package:photo_gallery_proto/confirmation_view.dart';
 import 'package:photo_gallery_proto/navigator_cubit.dart';
 import 'package:photo_gallery_proto/sign_up_view.dart';
 import 'navigator_state.dart' as navState;
@@ -21,11 +22,16 @@ class AppNavigator extends StatelessWidget {
           if (state is navState.SignUp) MaterialPage(child: SignUpView()),
           if (state is navState.ConfirmSignUp) ...[
             MaterialPage(child: SignUpView()),
-            MaterialPage(child: null)
+            MaterialPage(child: Container())
           ],
           if (state is navState.Session) MaterialPage(child: null)
         ],
-        onPopPage: (route, result) => route.didPop(result),
+        onPopPage: (route, result) {
+          if (state is navState.ConfirmSignUp) {
+            context.read<NavigatorCubit>().showSignUp();
+          }
+          return route.didPop(result);
+        },
       );
     }));
   }

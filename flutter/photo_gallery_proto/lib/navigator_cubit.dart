@@ -9,6 +9,6 @@ class NavigatorCubit extends Cubit<NavigatorState> {
 
   void showLogin() => emit(Login());
   void showSignUp() => emit(SignUp());
-
+  void showConfirmSignUp() => emit(ConfirmSignUp());
   void showSession() => emit(Session());
 }
