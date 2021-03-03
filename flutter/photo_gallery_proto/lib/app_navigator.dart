@@ -19,10 +19,10 @@ class AppNavigator extends StatelessWidget {
       return Navigator(
         pages: [
           if (state is navState.Login) MaterialPage(child: LoginView()),
-          if (state is navState.SignUp) MaterialPage(child: SignUpView()),
-          if (state is navState.ConfirmSignUp) ...[
+          if (state is navState.SignUp || state is navState.ConfirmSignUp) ...[
             MaterialPage(child: SignUpView()),
-            MaterialPage(child: Container())
+            if (state is navState.ConfirmSignUp)
+              MaterialPage(child: ConfirmationView())
           ],
           if (state is navState.Session) MaterialPage(child: null)
         ],
