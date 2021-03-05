@@ -1,5 +1,8 @@
 import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify.dart';
+import 'package:amplify_todo_proto/app_navigator.dart';
+import 'package:amplify_todo_proto/auth_cubit.dart';
+import 'package:amplify_todo_proto/auth_repository.dart';
 import 'package:amplify_todo_proto/list_todos_cubit.dart';
 import 'package:amplify_todo_proto/todos_view.dart';
 import 'package:flutter/material.dart';
@@ -29,10 +32,20 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    final authRepo = AuthRepository();
     return MaterialApp(
-        home: BlocProvider(
-            create: (context) => ListTodosCubit()..getTodos(),
-            child: _amplifyConfigured ? TodosView() : LoadingView()));
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => AuthCubit(authRepo: authRepo),
+          ),
+          BlocProvider(
+            create: (context) => ListTodosCubit(authRepo: authRepo),
+          )
+        ],
+        child: _amplifyConfigured ? AppNavigator() : LoadingView(),
+      ),
+    );
   }
 
   void _configureAmplify() async {
