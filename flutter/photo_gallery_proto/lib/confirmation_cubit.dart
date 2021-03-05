@@ -13,11 +13,17 @@ class ConfirmationCubit extends Cubit<ConfirmationState> {
 
   ConfirmationCubit({this.authRepo}) : super(ConfirmationState.initial);
 
-  void confirm({String username, String password}) async {
+  void confirm({String username, String confirmationCode}) async {
     emit(ConfirmationState.attemptingConfirm);
 
-    // try {
-    //   await
-    // }
+    try {
+      await authRepo.confirmSignUp(
+        username: username,
+        confirmationCode: confirmationCode,
+      );
+      emit(ConfirmationState.confirmSuccess);
+    } on Exception {
+      emit(ConfirmationState.confirmFailed);
+    }
   }
 }

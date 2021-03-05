@@ -92,7 +92,7 @@ class _ConfirmationViewState extends State<ConfirmationView> {
 
   Widget _showSignUpButton() {
     return TextButton(
-      onPressed: () => BlocProvider.of<NavigatorCubit>(context).showSignUp(),
+      onPressed: () => context.read<NavigatorCubit>().showSignUp(),
       child: Text('Don\'t have an account? Sign up.'),
     );
   }

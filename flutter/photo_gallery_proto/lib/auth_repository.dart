@@ -24,11 +24,22 @@ class AuthRepository {
     }
   }
 
-  Future<void> login(String username, String password) async {
+  Future<void> login({String username, String password}) async {
     try {
       await Amplify.Auth.signIn(
         username: username,
         password: password,
+      );
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<void> confirmSignUp({String username, String confirmationCode}) async {
+    try {
+      await Amplify.Auth.confirmSignUp(
+        username: username,
+        confirmationCode: confirmationCode,
       );
     } catch (e) {
       throw e;
