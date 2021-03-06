@@ -1,3 +1,4 @@
+import 'package:amplify_todo_proto/auth_cubit.dart';
 import 'package:amplify_todo_proto/list_todos_cubit.dart';
 import 'package:amplify_todo_proto/loading_view.dart';
 import 'package:amplify_todo_proto/models/Todo.dart';
@@ -36,6 +37,9 @@ class _TodosViewState extends State<TodosView> {
 
   AppBar _navBar() {
     return AppBar(
+      leading: IconButton(
+          icon: Icon(Icons.logout),
+          onPressed: () => BlocProvider.of<AuthCubit>(context).signIn()),
       title: Text('Todos'),
     );
   }

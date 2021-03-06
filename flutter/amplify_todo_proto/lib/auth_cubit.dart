@@ -20,4 +20,22 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthState.unauthenticated);
     }
   }
+
+  void attemptAutoSignIn() async {
+    try {
+      final isSignedIn = await authRepo.getAuthSession();
+      emit(isSignedIn ? AuthState.authenticated : AuthState.unauthenticated);
+    } on Exception {
+      emit(AuthState.unauthenticated);
+    }
+  }
+
+  void signOut() {
+    try {
+      authRepo.signOut();
+    } catch (e) {
+      print(e);
+    }
+    emit(AuthState.unauthenticated);
+  }
 }

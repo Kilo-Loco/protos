@@ -4,8 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:async';
 import 'models/Todo.dart';
 
-enum ListTodosEvent { getTodos }
-
 abstract class ListTodosState {}
 
 class LoadingTodos extends ListTodosState {}
@@ -23,14 +21,11 @@ class ListTodosFailed extends ListTodosState {
 }
 
 class ListTodosCubit extends Cubit<ListTodosState> {
-  final AuthRepository authRepo;
   final _todosRepo = TodosRepository();
   StreamSubscription _sub;
 
-  ListTodosCubit({this.authRepo}) : super(null) {
-    _sub = authRepo.observeAuthStatus().listen((eventName) {
-      print(eventName);
-    });
+  ListTodosCubit() : super(null) {
+    getTodos();
   }
 
   void getTodos() async {

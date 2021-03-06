@@ -17,4 +17,21 @@ class AuthRepository {
         .asBroadcastStream()
         .map((event) => (event as HubEvent).eventName);
   }
+
+  Future<bool> getAuthSession() async {
+    try {
+      final session = await Amplify.Auth.fetchAuthSession();
+      return session.isSignedIn;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<void> signOut() async {
+    try {
+      await Amplify.Auth.signOut();
+    } catch (e) {
+      throw e;
+    }
+  }
 }

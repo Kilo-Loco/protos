@@ -1,13 +1,12 @@
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify.dart';
 import 'package:amplify_todo_proto/app_navigator.dart';
 import 'package:amplify_todo_proto/auth_cubit.dart';
 import 'package:amplify_todo_proto/auth_repository.dart';
 import 'package:amplify_todo_proto/list_todos_cubit.dart';
-import 'package:amplify_todo_proto/todos_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'amplifyconfiguration.dart';
 import 'loading_view.dart';
 import 'models/ModelProvider.dart';
@@ -32,15 +31,15 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final authRepo = AuthRepository();
     return MaterialApp(
       home: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => AuthCubit(authRepo: authRepo),
+            create: (context) =>
+                AuthCubit(authRepo: AuthRepository())..attemptAutoSignIn(),
           ),
           BlocProvider(
-            create: (context) => ListTodosCubit(authRepo: authRepo),
+            create: (context) => ListTodosCubit(),
           )
         ],
         child: _amplifyConfigured ? AppNavigator() : LoadingView(),
@@ -49,9 +48,11 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _configureAmplify() async {
-    Amplify.addPlugin(AmplifyDataStore(modelProvider: ModelProvider.instance));
-
     try {
+      await Amplify.addPlugins([
+        AmplifyDataStore(modelProvider: ModelProvider.instance),
+        AmplifyAuthCognito(),
+      ]);
       await Amplify.configure(amplifyconfig);
       setState(() {
         _amplifyConfigured = true;
