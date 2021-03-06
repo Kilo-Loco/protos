@@ -39,7 +39,7 @@ class _TodosViewState extends State<TodosView> {
     return AppBar(
       leading: IconButton(
           icon: Icon(Icons.logout),
-          onPressed: () => BlocProvider.of<AuthCubit>(context).signIn()),
+          onPressed: () => BlocProvider.of<AuthCubit>(context).signOut()),
       title: Text('Todos'),
     );
   }

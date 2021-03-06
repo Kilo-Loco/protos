@@ -8,8 +8,7 @@ const amplifyconfig = ''' {
                     "endpointType": "GraphQL",
                     "endpoint": "https://zogpmguog5cezkgmc7uq3i3mma.appsync-api.us-west-2.amazonaws.com/graphql",
                     "region": "us-west-2",
-                    "authorizationType": "API_KEY",
-                    "apiKey": "da2-lpc75s7wzrch5cmmiradoq47bu"
+                    "authorizationType": "AMAZON_COGNITO_USER_POOLS"
                 }
             }
         }
@@ -26,31 +25,30 @@ const amplifyconfig = ''' {
                     "Default": {
                         "ApiUrl": "https://zogpmguog5cezkgmc7uq3i3mma.appsync-api.us-west-2.amazonaws.com/graphql",
                         "Region": "us-west-2",
-                        "AuthMode": "API_KEY",
-                        "ApiKey": "da2-lpc75s7wzrch5cmmiradoq47bu",
-                        "ClientDatabasePrefix": "amplifyDatasource_API_KEY"
+                        "AuthMode": "AMAZON_COGNITO_USER_POOLS",
+                        "ClientDatabasePrefix": "amplifyDatasource_AMAZON_COGNITO_USER_POOLS"
                     }
                 },
                 "CredentialsProvider": {
                     "CognitoIdentity": {
                         "Default": {
-                            "PoolId": "us-west-2:ac809454-b8e4-4065-b183-65a42fc1fcfb",
+                            "PoolId": "us-west-2:cdf19962-bb99-4946-8e60-a2c0bc7f5c4e",
                             "Region": "us-west-2"
                         }
                     }
                 },
                 "CognitoUserPool": {
                     "Default": {
-                        "PoolId": "us-west-2_RY2VOaZIa",
-                        "AppClientId": "24uhmpb933ct6pfqo7s63ejfk2",
+                        "PoolId": "us-west-2_esyeTaLLN",
+                        "AppClientId": "28br4dgv3o8r0sar273hsgbru",
                         "Region": "us-west-2"
                     }
                 },
                 "Auth": {
                     "Default": {
                         "OAuth": {
-                            "WebDomain": "amplifytodoprotoc544ea76-c544ea76-dev.auth.us-west-2.amazoncognito.com",
-                            "AppClientId": "24uhmpb933ct6pfqo7s63ejfk2",
+                            "WebDomain": "amplifytodoprotoa60aaff9-a60aaff9-dev.auth.us-west-2.amazoncognito.com",
+                            "AppClientId": "28br4dgv3o8r0sar273hsgbru",
                             "SignInRedirectURI": "todoproto://",
                             "SignOutRedirectURI": "todoproto://",
                             "Scopes": [
