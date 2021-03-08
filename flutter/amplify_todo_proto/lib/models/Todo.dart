@@ -65,8 +65,8 @@ class Todo extends Model {
     var buffer = new StringBuffer();
 
     buffer.write("Todo {");
-    buffer.write("id=" + id + ", ");
-    buffer.write("title=" + title + ", ");
+    buffer.write("id=" + "$id" + ", ");
+    buffer.write("title=" + "$title" + ", ");
     buffer.write(
         "isComplete=" + (isComplete != null ? isComplete.toString() : "null"));
     buffer.write("}");
@@ -98,12 +98,16 @@ class Todo extends Model {
     modelSchemaDefinition.pluralName = "Todos";
 
     modelSchemaDefinition.authRules = [
-      AuthRule(authStrategy: AuthStrategy.PUBLIC, operations: [
-        ModelOperation.CREATE,
-        ModelOperation.UPDATE,
-        ModelOperation.DELETE,
-        ModelOperation.READ
-      ])
+      AuthRule(
+          authStrategy: AuthStrategy.OWNER,
+          ownerField: "owner",
+          identityClaim: "cognito:username",
+          operations: [
+            ModelOperation.CREATE,
+            ModelOperation.UPDATE,
+            ModelOperation.DELETE,
+            ModelOperation.READ
+          ])
     ];
 
     modelSchemaDefinition.addField(ModelFieldDefinition.id());

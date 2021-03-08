@@ -10,7 +10,7 @@ class AuthView extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           child: Text('Sign In'),
-          onPressed: () => BlocProvider.of<AuthCubit>(context).signOut(),
+          onPressed: () => BlocProvider.of<AuthCubit>(context).signIn(),
         ),
       ),
     );

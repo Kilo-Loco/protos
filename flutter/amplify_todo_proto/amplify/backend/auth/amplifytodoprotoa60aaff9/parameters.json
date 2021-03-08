@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "amplifytodoprotoc544ea76_identitypool_c544ea76",
+    "identityPoolName": "amplifytodoprotoa60aaff9_identitypool_a60aaff9",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "amplifc544ea76",
-    "userPoolName": "amplifytodoprotoc544ea76_userpool_c544ea76",
+    "resourceNameTruncated": "amplifa60aaff9",
+    "userPoolName": "amplifytodoprotoa60aaff9_userpool_a60aaff9",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "amplifc544ea76_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "amplifa60aaff9_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "c544ea76",
-    "resourceName": "amplifytodoprotoc544ea76",
+    "sharedId": "a60aaff9",
+    "resourceName": "amplifytodoprotoa60aaff9",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -47,12 +47,17 @@
     },
     "useDefault": "defaultSocial",
     "hostedUI": true,
-    "hostedUIDomainName": "amplifytodoprotoc544ea76-c544ea76",
+    "triggers": "{}",
+    "hostedUIDomainName": "amplifytodoprotoa60aaff9-a60aaff9",
     "authProvidersUserPool": [],
     "hostedUIProviderMeta": "[]",
     "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"todoproto://\"],\"LogoutURLs\":[\"todoproto://\"]}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
     "dependsOn": []
 }

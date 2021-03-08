@@ -1,3 +1,4 @@
+import 'package:amplify_api/amplify_api.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify.dart';
@@ -26,7 +27,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    _configureAmplify();
+    _configureAmplify().then((value) => _observeHub());
   }
 
   @override
@@ -47,10 +48,11 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  void _configureAmplify() async {
+  Future<void> _configureAmplify() async {
     try {
       await Amplify.addPlugins([
         AmplifyDataStore(modelProvider: ModelProvider.instance),
+        AmplifyAPI(),
         AmplifyAuthCognito(),
       ]);
       await Amplify.configure(amplifyconfig);
@@ -60,5 +62,12 @@ class _MyAppState extends State<MyApp> {
     } catch (e) {
       print(e);
     }
+  }
+
+  void _observeHub() {
+    Amplify.Hub.listen([HubChannel.DataStore], (event) {
+      final eventName = (event as HubEvent).eventName;
+      print('HUB: $eventName');
+    });
   }
 }
