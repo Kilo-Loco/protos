@@ -1,8 +1,7 @@
-import 'package:amplify_todo_proto/auth_repository.dart';
 import 'package:amplify_todo_proto/todos_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'dart:async';
 import 'models/Todo.dart';
+import 'models/User.dart';
 
 abstract class ListTodosState {}
 
@@ -21,10 +20,10 @@ class ListTodosFailed extends ListTodosState {
 }
 
 class ListTodosCubit extends Cubit<ListTodosState> {
+  final String currentUserId;
   final _todosRepo = TodosRepository();
-  StreamSubscription _sub;
 
-  ListTodosCubit() : super(null) {
+  ListTodosCubit({this.currentUserId}) : super(null) {
     getTodos();
   }
 
@@ -34,7 +33,7 @@ class ListTodosCubit extends Cubit<ListTodosState> {
     }
 
     try {
-      final todos = await _todosRepo.getTodos();
+      final todos = await _todosRepo.getTodos(currentUserId);
       emit(ListTodosSuccess(todos: todos));
     } catch (e) {
       emit(ListTodosFailed(exception: e));
@@ -42,18 +41,12 @@ class ListTodosCubit extends Cubit<ListTodosState> {
   }
 
   void createTodo(String title) async {
-    await _todosRepo.createTodo(title);
+    await _todosRepo.createTodo(title, currentUserId);
     getTodos();
   }
 
   void updateIsCompleteForTodo(Todo todo, bool isComplete) async {
     await _todosRepo.updateIsCompleteForTodo(todo, isComplete);
     getTodos();
-  }
-
-  @override
-  Future<void> close() {
-    _sub.cancel();
-    return super.close();
   }
 }

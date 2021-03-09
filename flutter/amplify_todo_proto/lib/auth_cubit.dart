@@ -1,32 +1,46 @@
 import 'package:amplify_todo_proto/auth_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-enum AuthState { unknown, authenticated, unauthenticated }
+abstract class AuthState {}
+
+class UnknownAuthState extends AuthState {}
+
+class Unauthenticated extends AuthState {}
+
+class Authenticated extends AuthState {
+  final String userId;
+
+  Authenticated({this.userId});
+}
 
 class AuthCubit extends Cubit<AuthState> {
   final AuthRepository authRepo;
 
-  AuthCubit({this.authRepo}) : super(AuthState.unknown);
+  AuthCubit({this.authRepo}) : super(UnknownAuthState());
 
   void signIn() async {
     try {
-      final isSignedIn = await authRepo.webSignIn();
-      if (isSignedIn) {
-        emit(AuthState.authenticated);
+      final userId = await authRepo.webSignIn();
+      if (userId != null && userId.isNotEmpty) {
+        emit(Authenticated(userId: userId));
       } else {
-        emit(AuthState.unauthenticated);
+        emit(Unauthenticated());
       }
     } on Exception {
-      emit(AuthState.unauthenticated);
+      emit(Unauthenticated());
     }
   }
 
   void attemptAutoSignIn() async {
     try {
-      final isSignedIn = await authRepo.getAuthSession();
-      emit(isSignedIn ? AuthState.authenticated : AuthState.unauthenticated);
+      final userId = await authRepo.getAuthSession();
+      if (userId != null && userId.isNotEmpty) {
+        emit(Authenticated(userId: userId));
+      } else {
+        emit(Unauthenticated());
+      }
     } on Exception {
-      emit(AuthState.unauthenticated);
+      emit(Unauthenticated());
     }
   }
 
@@ -36,6 +50,6 @@ class AuthCubit extends Cubit<AuthState> {
     } catch (e) {
       print(e);
     }
-    emit(AuthState.unauthenticated);
+    emit(Unauthenticated());
   }
 }
