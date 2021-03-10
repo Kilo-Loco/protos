@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C545B392754216E1788B6EC /* Pods_siwa_swiftui_proto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251448293E83B7849737C01C /* Pods_siwa_swiftui_proto.framework */; };
+		53C6826DFDEA4BE5B9B05BDC /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = EA9A4885AAA34F7E913A9D1E /* awsconfiguration.json */; };
 		7C686D0825F6C7FB00C5A710 /* siwa_swiftui_protoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C686D0725F6C7FB00C5A710 /* siwa_swiftui_protoApp.swift */; };
 		7C686D0A25F6C7FB00C5A710 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C686D0925F6C7FB00C5A710 /* ContentView.swift */; };
 		7C686D0C25F6C7FC00C5A710 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C686D0B25F6C7FC00C5A710 /* Assets.xcassets */; };
 		7C686D0F25F6C7FC00C5A710 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C686D0E25F6C7FC00C5A710 /* Preview Assets.xcassets */; };
+		AD178EA8A3C842749946F304 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = DE84748F3E3A4BE19AA22311 /* amplifyconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		251448293E83B7849737C01C /* Pods_siwa_swiftui_proto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_siwa_swiftui_proto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C072F60AAF625102B603FBC /* Pods-siwa-swiftui-proto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-siwa-swiftui-proto.debug.xcconfig"; path = "Target Support Files/Pods-siwa-swiftui-proto/Pods-siwa-swiftui-proto.debug.xcconfig"; sourceTree = "<group>"; };
+		32F3FC501A1B452BAB606D7E /* amplifytools.xcconfig */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.xcconfig; name = amplifytools.xcconfig; path = amplifytools.xcconfig; sourceTree = "<group>"; };
 		7C686D0425F6C7FB00C5A710 /* siwa-swiftui-proto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "siwa-swiftui-proto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C686D0725F6C7FB00C5A710 /* siwa_swiftui_protoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = siwa_swiftui_protoApp.swift; sourceTree = "<group>"; };
 		7C686D0925F6C7FB00C5A710 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -21,6 +27,9 @@
 		7C686D0E25F6C7FC00C5A710 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C686D1025F6C7FC00C5A710 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C686D1725F6C82200C5A710 /* siwa-swiftui-proto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "siwa-swiftui-proto.entitlements"; sourceTree = "<group>"; };
+		C1DDD5085B282B679A54FE83 /* Pods-siwa-swiftui-proto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-siwa-swiftui-proto.release.xcconfig"; path = "Target Support Files/Pods-siwa-swiftui-proto/Pods-siwa-swiftui-proto.release.xcconfig"; sourceTree = "<group>"; };
+		DE84748F3E3A4BE19AA22311 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = amplifyconfiguration.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		EA9A4885AAA34F7E913A9D1E /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = awsconfiguration.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C545B392754216E1788B6EC /* Pods_siwa_swiftui_proto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,8 +47,11 @@
 		7C686CFB25F6C7FB00C5A710 = {
 			isa = PBXGroup;
 			children = (
+				9131280904794769B024AAED /* AmplifyConfig */,
 				7C686D0625F6C7FB00C5A710 /* siwa-swiftui-proto */,
 				7C686D0525F6C7FB00C5A710 /* Products */,
+				F3074DB354F2C6264C4D149A /* Pods */,
+				861DB6B5A7BF689A83533ECE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +84,35 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		861DB6B5A7BF689A83533ECE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				251448293E83B7849737C01C /* Pods_siwa_swiftui_proto.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9131280904794769B024AAED /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				32F3FC501A1B452BAB606D7E /* amplifytools.xcconfig */,
+				DE84748F3E3A4BE19AA22311 /* amplifyconfiguration.json */,
+				EA9A4885AAA34F7E913A9D1E /* awsconfiguration.json */,
+			);
+			name = AmplifyConfig;
+			path = .;
+			sourceTree = "<group>";
+		};
+		F3074DB354F2C6264C4D149A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C072F60AAF625102B603FBC /* Pods-siwa-swiftui-proto.debug.xcconfig */,
+				C1DDD5085B282B679A54FE83 /* Pods-siwa-swiftui-proto.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,9 +120,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C686D1325F6C7FC00C5A710 /* Build configuration list for PBXNativeTarget "siwa-swiftui-proto" */;
 			buildPhases = (
+				58BECEBF16F171894772B620 /* [CP] Check Pods Manifest.lock */,
 				7C686D0025F6C7FB00C5A710 /* Sources */,
 				7C686D0125F6C7FB00C5A710 /* Frameworks */,
 				7C686D0225F6C7FB00C5A710 /* Resources */,
+				5D777855DEA1509EDD559412 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,10 +174,54 @@
 			files = (
 				7C686D0F25F6C7FC00C5A710 /* Preview Assets.xcassets in Resources */,
 				7C686D0C25F6C7FC00C5A710 /* Assets.xcassets in Resources */,
+				AD178EA8A3C842749946F304 /* amplifyconfiguration.json in Resources */,
+				53C6826DFDEA4BE5B9B05BDC /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		58BECEBF16F171894772B620 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-siwa-swiftui-proto-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D777855DEA1509EDD559412 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-siwa-swiftui-proto/Pods-siwa-swiftui-proto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-siwa-swiftui-proto/Pods-siwa-swiftui-proto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-siwa-swiftui-proto/Pods-siwa-swiftui-proto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7C686D0025F6C7FB00C5A710 /* Sources */ = {
@@ -266,6 +354,7 @@
 		};
 		7C686D1425F6C7FC00C5A710 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C072F60AAF625102B603FBC /* Pods-siwa-swiftui-proto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -289,6 +378,7 @@
 		};
 		7C686D1525F6C7FC00C5A710 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1DDD5085B282B679A54FE83 /* Pods-siwa-swiftui-proto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
