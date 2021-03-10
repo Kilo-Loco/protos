@@ -1,5 +1,13 @@
-type Todo @model @auth(rules: [{allow: owner}]) {
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  email: String!
+  todos: [Todo] @connection(keyName: "byUser", fields: ["id"])
+}
+
+type Todo @model @auth(rules: [{allow: public}]) @key(name: "byUser", fields: ["userID"]) {
   id: ID!
   title: String!
   isComplete: Boolean!
+  userID: ID
 }
+ 

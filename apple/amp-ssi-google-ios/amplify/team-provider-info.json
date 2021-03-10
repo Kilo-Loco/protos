@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ampssigoogleios-dev-214734-authRole",
+      "UnauthRoleArn": "arn:aws:iam::088987693321:role/amplify-ampssigoogleios-dev-214734-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::088987693321:role/amplify-ampssigoogleios-dev-214734-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-ampssigoogleios-dev-214734-deployment",
+      "UnauthRoleName": "amplify-ampssigoogleios-dev-214734-unauthRole",
+      "StackName": "amplify-ampssigoogleios-dev-214734",
+      "StackId": "arn:aws:cloudformation:us-west-2:088987693321:stack/amplify-ampssigoogleios-dev-214734/7408b820-7e3f-11eb-9646-020ba035f82f",
+      "AmplifyAppId": "d3jmtjw8eo5ymj"
+    },
+    "categories": {
+      "auth": {
+        "ampssigoogleiosb63b5329b63b5329": {}
+      }
+    }
+  }
+}

@@ -7,19 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17435144A0FB4DBC91D9B639 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DD729BF569748448F7E8A7E /* amplifyconfiguration.json */; };
 		7C2093A625F3438F0028F152 /* amp_ssi_google_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2093A525F3438F0028F152 /* amp_ssi_google_iosApp.swift */; };
 		7C2093A825F3438F0028F152 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2093A725F3438F0028F152 /* ContentView.swift */; };
 		7C2093AA25F343900028F152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C2093A925F343900028F152 /* Assets.xcassets */; };
 		7C2093AD25F343900028F152 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C2093AC25F343900028F152 /* Preview Assets.xcassets */; };
+		BBA8EAE3FABD443D9480896D /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 692AF14DBE634A5B82595529 /* awsconfiguration.json */; };
+		F5CDE8937AC805A6DD8F1EE4 /* Pods_amp_ssi_google_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9CC1BCD526EF2680252461 /* Pods_amp_ssi_google_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		692AF14DBE634A5B82595529 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = awsconfiguration.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		7C2093A225F3438F0028F152 /* amp-ssi-google-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "amp-ssi-google-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C2093A525F3438F0028F152 /* amp_ssi_google_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = amp_ssi_google_iosApp.swift; sourceTree = "<group>"; };
 		7C2093A725F3438F0028F152 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7C2093A925F343900028F152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C2093AC25F343900028F152 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C2093AE25F343900028F152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82710A7D72F6FBB67008D80C /* Pods-amp-ssi-google-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amp-ssi-google-ios.debug.xcconfig"; path = "Target Support Files/Pods-amp-ssi-google-ios/Pods-amp-ssi-google-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		9DD729BF569748448F7E8A7E /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = amplifyconfiguration.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
+		B46991FE7D2E44F2A7DF7BF6 /* amplifytools.xcconfig */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = text.xcconfig; name = amplifytools.xcconfig; path = amplifytools.xcconfig; sourceTree = "<group>"; };
+		DC9CC1BCD526EF2680252461 /* Pods_amp_ssi_google_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_amp_ssi_google_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF9EA33EA6ED6C754F4B20BD /* Pods-amp-ssi-google-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-amp-ssi-google-ios.release.xcconfig"; path = "Target Support Files/Pods-amp-ssi-google-ios/Pods-amp-ssi-google-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +36,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5CDE8937AC805A6DD8F1EE4 /* Pods_amp_ssi_google_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DB583975E83B20B395AAEED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82710A7D72F6FBB67008D80C /* Pods-amp-ssi-google-ios.debug.xcconfig */,
+				FF9EA33EA6ED6C754F4B20BD /* Pods-amp-ssi-google-ios.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7C20939925F3438F0028F152 = {
 			isa = PBXGroup;
 			children = (
+				908C37F906D5462B99BB541C /* AmplifyConfig */,
 				7C2093A425F3438F0028F152 /* amp-ssi-google-ios */,
 				7C2093A325F3438F0028F152 /* Products */,
+				3DB583975E83B20B395AAEED /* Pods */,
+				AEC18E9FE6DEDB4032BAFF62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +92,25 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		908C37F906D5462B99BB541C /* AmplifyConfig */ = {
+			isa = PBXGroup;
+			children = (
+				B46991FE7D2E44F2A7DF7BF6 /* amplifytools.xcconfig */,
+				9DD729BF569748448F7E8A7E /* amplifyconfiguration.json */,
+				692AF14DBE634A5B82595529 /* awsconfiguration.json */,
+			);
+			name = AmplifyConfig;
+			path = .;
+			sourceTree = "<group>";
+		};
+		AEC18E9FE6DEDB4032BAFF62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC9CC1BCD526EF2680252461 /* Pods_amp_ssi_google_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -76,9 +118,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C2093B125F343900028F152 /* Build configuration list for PBXNativeTarget "amp-ssi-google-ios" */;
 			buildPhases = (
+				F15FA022CD38D3F2C84D7B45 /* [CP] Check Pods Manifest.lock */,
 				7C20939E25F3438F0028F152 /* Sources */,
 				7C20939F25F3438F0028F152 /* Frameworks */,
 				7C2093A025F3438F0028F152 /* Resources */,
+				E5368FD30C1E4EDD65A27AAB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,10 +172,54 @@
 			files = (
 				7C2093AD25F343900028F152 /* Preview Assets.xcassets in Resources */,
 				7C2093AA25F343900028F152 /* Assets.xcassets in Resources */,
+				17435144A0FB4DBC91D9B639 /* amplifyconfiguration.json in Resources */,
+				BBA8EAE3FABD443D9480896D /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E5368FD30C1E4EDD65A27AAB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-amp-ssi-google-ios/Pods-amp-ssi-google-ios-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-amp-ssi-google-ios/Pods-amp-ssi-google-ios-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-amp-ssi-google-ios/Pods-amp-ssi-google-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F15FA022CD38D3F2C84D7B45 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-amp-ssi-google-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7C20939E25F3438F0028F152 /* Sources */ = {
@@ -264,6 +352,7 @@
 		};
 		7C2093B225F343900028F152 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82710A7D72F6FBB67008D80C /* Pods-amp-ssi-google-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -286,6 +375,7 @@
 		};
 		7C2093B325F343900028F152 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF9EA33EA6ED6C754F4B20BD /* Pods-amp-ssi-google-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

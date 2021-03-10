@@ -25,6 +25,7 @@ class Todo extends Model {
   final String id;
   final String title;
   final bool isComplete;
+  final String userID;
 
   @override
   getInstanceType() => classType;
@@ -35,13 +36,21 @@ class Todo extends Model {
   }
 
   const Todo._internal(
-      {@required this.id, @required this.title, @required this.isComplete});
+      {@required this.id,
+      @required this.title,
+      @required this.isComplete,
+      this.userID});
 
-  factory Todo({String id, @required String title, @required bool isComplete}) {
+  factory Todo(
+      {String id,
+      @required String title,
+      @required bool isComplete,
+      String userID}) {
     return Todo._internal(
         id: id == null ? UUID.getUUID() : id,
         title: title,
-        isComplete: isComplete);
+        isComplete: isComplete,
+        userID: userID);
   }
 
   bool equals(Object other) {
@@ -54,7 +63,8 @@ class Todo extends Model {
     return other is Todo &&
         id == other.id &&
         title == other.title &&
-        isComplete == other.isComplete;
+        isComplete == other.isComplete &&
+        userID == other.userID;
   }
 
   @override
@@ -67,47 +77,48 @@ class Todo extends Model {
     buffer.write("Todo {");
     buffer.write("id=" + "$id" + ", ");
     buffer.write("title=" + "$title" + ", ");
-    buffer.write(
-        "isComplete=" + (isComplete != null ? isComplete.toString() : "null"));
+    buffer.write("isComplete=" +
+        (isComplete != null ? isComplete.toString() : "null") +
+        ", ");
+    buffer.write("userID=" + "$userID");
     buffer.write("}");
 
     return buffer.toString();
   }
 
-  Todo copyWith({String id, String title, bool isComplete}) {
+  Todo copyWith({String id, String title, bool isComplete, String userID}) {
     return Todo(
         id: id ?? this.id,
         title: title ?? this.title,
-        isComplete: isComplete ?? this.isComplete);
+        isComplete: isComplete ?? this.isComplete,
+        userID: userID ?? this.userID);
   }
 
   Todo.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         title = json['title'],
-        isComplete = json['isComplete'];
+        isComplete = json['isComplete'],
+        userID = json['userID'];
 
   Map<String, dynamic> toJson() =>
-      {'id': id, 'title': title, 'isComplete': isComplete};
+      {'id': id, 'title': title, 'isComplete': isComplete, 'userID': userID};
 
   static final QueryField ID = QueryField(fieldName: "todo.id");
   static final QueryField TITLE = QueryField(fieldName: "title");
   static final QueryField ISCOMPLETE = QueryField(fieldName: "isComplete");
+  static final QueryField USERID = QueryField(fieldName: "userID");
   static var schema =
       Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "Todo";
     modelSchemaDefinition.pluralName = "Todos";
 
     modelSchemaDefinition.authRules = [
-      AuthRule(
-          authStrategy: AuthStrategy.OWNER,
-          ownerField: "owner",
-          identityClaim: "cognito:username",
-          operations: [
-            ModelOperation.CREATE,
-            ModelOperation.UPDATE,
-            ModelOperation.DELETE,
-            ModelOperation.READ
-          ])
+      AuthRule(authStrategy: AuthStrategy.PUBLIC, operations: [
+        ModelOperation.CREATE,
+        ModelOperation.UPDATE,
+        ModelOperation.DELETE,
+        ModelOperation.READ
+      ])
     ];
 
     modelSchemaDefinition.addField(ModelFieldDefinition.id());
@@ -121,6 +132,11 @@ class Todo extends Model {
         key: Todo.ISCOMPLETE,
         isRequired: true,
         ofType: ModelFieldType(ModelFieldTypeEnum.bool)));
+
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+        key: Todo.USERID,
+        isRequired: false,
+        ofType: ModelFieldType(ModelFieldTypeEnum.string)));
   });
 }
 

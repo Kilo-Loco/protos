@@ -33,16 +33,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) =>
-                AuthCubit(authRepo: AuthRepository())..attemptAutoSignIn(),
-          ),
-          BlocProvider(
-            create: (context) => ListTodosCubit(),
-          )
-        ],
+      home: BlocProvider(
+        create: (context) =>
+            AuthCubit(authRepo: AuthRepository())..attemptAutoSignIn(),
         child: _amplifyConfigured ? AppNavigator() : LoadingView(),
       ),
     );

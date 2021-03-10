@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "ampssigoogleiosb63b5329b63b5329": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

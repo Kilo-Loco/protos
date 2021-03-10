@@ -1,5 +1,6 @@
 import 'package:amplify_todo_proto/auth_cubit.dart';
 import 'package:amplify_todo_proto/auth_view.dart';
+import 'package:amplify_todo_proto/list_todos_cubit.dart';
 import 'package:amplify_todo_proto/loading_view.dart';
 import 'package:amplify_todo_proto/todos_view.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +12,16 @@ class AppNavigator extends StatelessWidget {
     return BlocBuilder<AuthCubit, AuthState>(builder: ((context, state) {
       return Navigator(
         pages: [
-          if (state == AuthState.unknown) MaterialPage(child: LoadingView()),
-          if (state == AuthState.unauthenticated)
-            MaterialPage(child: AuthView()),
-          if (state == AuthState.authenticated) MaterialPage(child: TodosView())
+          if (state is UnknownAuthState) MaterialPage(child: LoadingView()),
+          if (state is Unauthenticated) MaterialPage(child: AuthView()),
+          if (state is Authenticated)
+            MaterialPage(
+              child: BlocProvider(
+                create: (context) =>
+                    ListTodosCubit(currentUserId: state.userId),
+                child: TodosView(),
+              ),
+            )
         ],
         onPopPage: (route, result) => route.didPop(result),
       );
