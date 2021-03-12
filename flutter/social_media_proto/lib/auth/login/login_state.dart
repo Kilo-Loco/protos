@@ -11,9 +11,13 @@ class LoginState {
     return password.length >= 6;
   }
 
-  final FormSubmissigitonStatus formStatus;
+  final FormSubmissionStatus formStatus;
 
-  LoginState({this.username, this.password, this.formStatus});
+  LoginState({
+    this.username = '',
+    this.password = '',
+    this.formStatus = const InitialFormStatus(),
+  });
 
   LoginState copyWith({
     String username,
