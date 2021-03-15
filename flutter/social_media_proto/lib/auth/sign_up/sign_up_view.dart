@@ -36,6 +36,7 @@ class SignUpView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _usernameField(),
+              _emailField(),
               _passwordField(),
               _signUpButton(),
             ],
@@ -58,6 +59,22 @@ class SignUpView extends StatelessWidget {
               .add(SignUpUsernameChanged(username: value)),
           validator: (_) =>
               !state.isValidUsername ? 'Your username is too short' : null,
+        );
+      },
+    );
+  }
+
+  Widget _emailField() {
+    return BlocBuilder<SignUpBloc, SignUpState>(
+      builder: (context, state) {
+        return TextFormField(
+          decoration: InputDecoration(
+            icon: Icon(Icons.mail),
+            hintText: 'Email',
+          ),
+          onChanged: (value) =>
+              context.read<SignUpBloc>().add(SignUpEmailChanged(email: value)),
+          validator: (_) => !state.isValidEmail ? 'Invalid email' : null,
         );
       },
     );
