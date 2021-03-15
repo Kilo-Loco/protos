@@ -16,7 +16,7 @@ class LoginView extends StatelessWidget {
       body: BlocProvider(
         create: (context) => LoginBloc(
           authRepo: context.read<AuthRepository>(),
-          authCubit: context.read()<AuthCubit>(),
+          authCubit: context.read<AuthCubit>(),
         ),
         child: Stack(
           alignment: Alignment.bottomCenter,
@@ -78,7 +78,7 @@ class LoginView extends StatelessWidget {
         return TextFormField(
           obscureText: true,
           decoration: InputDecoration(
-            icon: Icon(Icons.security),
+            icon: Icon(Icons.lock),
             hintText: 'Password',
           ),
           onChanged: (value) => context

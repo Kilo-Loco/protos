@@ -14,8 +14,10 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (context) =>
-            SignUpBloc(authRepo: context.read<AuthRepository>()),
+        create: (context) => SignUpBloc(
+          authRepo: context.read<AuthRepository>(),
+          authCubit: context.read<AuthCubit>(),
+        ),
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
@@ -93,7 +95,7 @@ class SignUpView extends StatelessWidget {
         return TextFormField(
           obscureText: true,
           decoration: InputDecoration(
-            icon: Icon(Icons.security),
+            icon: Icon(Icons.lock),
             hintText: 'Password',
           ),
           onChanged: (value) => context

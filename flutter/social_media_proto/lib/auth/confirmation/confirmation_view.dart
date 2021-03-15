@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_media_proto/auth/auth_cubit.dart';
 import 'package:social_media_proto/auth/confirmation/confirmation_state.dart';
 import 'package:social_media_proto/auth/form_submission_status.dart';
 import '../auth_repository.dart';
@@ -13,8 +14,10 @@ class ConfirmationView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (context) =>
-            ConfirmationBloc(authRepo: context.read<AuthRepository>()),
+        create: (context) => ConfirmationBloc(
+          authRepo: context.read<AuthRepository>(),
+          authCubit: context.read<AuthCubit>(),
+        ),
         child: _loginForm(),
       ),
     );

@@ -1,7 +1,7 @@
 class AuthRepository {
   Future<String> attemptAutoLogin() async {
     await Future.delayed(Duration(seconds: 1));
-    print('unauthenticated');
+    throw Exception('not signed in');
   }
 
   Future<String> login({
@@ -11,6 +11,7 @@ class AuthRepository {
     print('attempting login');
     await Future.delayed(Duration(seconds: 2));
     print('logged in');
+    return 'abc';
   }
 
   Future<void> signUp({
@@ -27,10 +28,12 @@ class AuthRepository {
   }) async {
     await Future.delayed(Duration(seconds: 2));
     print('$username $confirmationCode');
+    return 'abc';
   }
 
   Future<void> signOut() async {
     await Future.delayed(Duration(seconds: 1));
     print('signed out in repo');
+    return 'abc';
   }
 }
