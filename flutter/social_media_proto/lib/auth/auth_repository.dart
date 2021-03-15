@@ -1,5 +1,10 @@
 class AuthRepository {
-  Future<void> login({
+  Future<String> attemptAutoLogin() async {
+    await Future.delayed(Duration(seconds: 1));
+    print('unauthenticated');
+  }
+
+  Future<String> login({
     String username,
     String password,
   }) async {
@@ -16,7 +21,7 @@ class AuthRepository {
     await Future.delayed(Duration(seconds: 3));
   }
 
-  Future<void> confirmSignUp({
+  Future<String> confirmSignUp({
     String username,
     String confirmationCode,
   }) async {
