@@ -1,39 +1,79 @@
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_flutter/amplify.dart';
+
 class AuthRepository {
+  Future<String> _getUserIdFromAttributes() async {
+    final attributes = await Amplify.Auth.fetchUserAttributes();
+    final userId = attributes
+        .firstWhere((element) => element.userAttributeKey == 'sub')
+        .value;
+    return userId;
+  }
+
   Future<String> attemptAutoLogin() async {
-    await Future.delayed(Duration(seconds: 1));
-    throw Exception('not signed in');
+    final session = await Amplify.Auth.fetchAuthSession();
+    print(session.isSignedIn);
+    if (session.isSignedIn) {
+      return await _getUserIdFromAttributes();
+    } else {
+      return null;
+    }
   }
 
   Future<String> login({
     String username,
     String password,
   }) async {
-    print('attempting login');
-    await Future.delayed(Duration(seconds: 2));
-    print('logged in');
-    return 'abc';
+    try {
+      final result = await Amplify.Auth.signIn(
+        username: username.trim(),
+        password: password.trim(),
+      );
+
+      if (result.isSignedIn) {
+        return await _getUserIdFromAttributes();
+      } else {
+        throw Exception('Not signed in');
+      }
+    } catch (e) {
+      throw e;
+    }
   }
 
-  Future<void> signUp({
+  Future<bool> signUp({
     String username,
     String email,
     String password,
   }) async {
-    await Future.delayed(Duration(seconds: 3));
+    try {
+      final userAttributes = {'email': email};
+      final result = await Amplify.Auth.signUp(
+        username: username.trim(),
+        password: password.trim(),
+        options: CognitoSignUpOptions(userAttributes: userAttributes),
+      );
+      return result.isSignUpComplete;
+    } catch (e) {
+      throw e;
+    }
   }
 
-  Future<String> confirmSignUp({
+  Future<bool> confirmSignUp({
     String username,
     String confirmationCode,
   }) async {
-    await Future.delayed(Duration(seconds: 2));
-    print('$username $confirmationCode');
-    return 'abc';
+    try {
+      final result = await Amplify.Auth.confirmSignUp(
+        username: username.trim(),
+        confirmationCode: confirmationCode.trim(),
+      );
+      return result.isSignUpComplete;
+    } catch (e) {
+      throw e;
+    }
   }
 
   Future<void> signOut() async {
-    await Future.delayed(Duration(seconds: 1));
-    print('signed out in repo');
-    return 'abc';
+    await Amplify.Auth.signOut();
   }
 }

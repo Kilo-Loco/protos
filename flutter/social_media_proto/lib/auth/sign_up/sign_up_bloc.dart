@@ -27,14 +27,13 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
           email: state.email,
           password: state.password,
         );
-        print('sign up finished');
+
         yield state.copyWith(formStatus: SubmissionSuccess());
         authCubit.showConfirmSignUp(
           state.username,
           state.email,
           state.password,
         );
-        print('confirm sign up');
       } catch (e) {
         print(e);
         yield state.copyWith(formStatus: SubmissionFailed(exception: e));
