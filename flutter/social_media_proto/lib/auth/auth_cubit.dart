@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media_proto/auth/auth_credentials.dart';
-import 'package:social_media_proto/session_cubit.dart';
+import 'package:social_media_proto/session/session_cubit.dart';
 
 enum AuthState { login, signUp, confirmSignUp }
 

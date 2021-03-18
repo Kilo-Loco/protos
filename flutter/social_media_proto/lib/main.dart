@@ -10,7 +10,7 @@ import 'package:social_media_proto/auth/auth_repository.dart';
 import 'package:social_media_proto/data_repository.dart';
 import 'package:social_media_proto/loading_view.dart';
 import 'package:social_media_proto/models/ModelProvider.dart';
-import 'package:social_media_proto/session_cubit.dart';
+import 'package:social_media_proto/session/session_cubit.dart';
 
 void main() {
   runApp(MyApp());

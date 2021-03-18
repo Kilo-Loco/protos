@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_media_proto/session_cubit.dart';
+import 'package:social_media_proto/session/session_cubit.dart';
 
 class SessionView extends StatelessWidget {
   final String username;

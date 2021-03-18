@@ -1,4 +1,4 @@
-import 'models/User.dart';
+import '../models/User.dart';
 
 abstract class SessionState {}
 
