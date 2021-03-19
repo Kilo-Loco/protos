@@ -3,5 +3,6 @@ type User @model @auth(rules: [{allow: public}]) {
   username: String!
   email: String
   avatarKey: String
+  description: String
 }
  

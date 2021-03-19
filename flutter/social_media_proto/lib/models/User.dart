@@ -26,6 +26,7 @@ class User extends Model {
   final String username;
   final String email;
   final String avatarKey;
+  final String description;
 
   @override
   getInstanceType() => classType;
@@ -36,15 +37,24 @@ class User extends Model {
   }
 
   const User._internal(
-      {@required this.id, @required this.username, this.email, this.avatarKey});
+      {@required this.id,
+      @required this.username,
+      this.email,
+      this.avatarKey,
+      this.description});
 
   factory User(
-      {String id, @required String username, String email, String avatarKey}) {
+      {String id,
+      @required String username,
+      String email,
+      String avatarKey,
+      String description}) {
     return User._internal(
         id: id == null ? UUID.getUUID() : id,
         username: username,
         email: email,
-        avatarKey: avatarKey);
+        avatarKey: avatarKey,
+        description: description);
   }
 
   bool equals(Object other) {
@@ -58,7 +68,8 @@ class User extends Model {
         id == other.id &&
         username == other.username &&
         email == other.email &&
-        avatarKey == other.avatarKey;
+        avatarKey == other.avatarKey &&
+        description == other.description;
   }
 
   @override
@@ -72,33 +83,47 @@ class User extends Model {
     buffer.write("id=" + "$id" + ", ");
     buffer.write("username=" + "$username" + ", ");
     buffer.write("email=" + "$email" + ", ");
-    buffer.write("avatarKey=" + "$avatarKey");
+    buffer.write("avatarKey=" + "$avatarKey" + ", ");
+    buffer.write("description=" + "$description");
     buffer.write("}");
 
     return buffer.toString();
   }
 
-  User copyWith({String id, String username, String email, String avatarKey}) {
+  User copyWith(
+      {String id,
+      String username,
+      String email,
+      String avatarKey,
+      String description}) {
     return User(
         id: id ?? this.id,
         username: username ?? this.username,
         email: email ?? this.email,
-        avatarKey: avatarKey ?? this.avatarKey);
+        avatarKey: avatarKey ?? this.avatarKey,
+        description: description ?? this.description);
   }
 
   User.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         username = json['username'],
         email = json['email'],
-        avatarKey = json['avatarKey'];
+        avatarKey = json['avatarKey'],
+        description = json['description'];
 
-  Map<String, dynamic> toJson() =>
-      {'id': id, 'username': username, 'email': email, 'avatarKey': avatarKey};
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'username': username,
+        'email': email,
+        'avatarKey': avatarKey,
+        'description': description
+      };
 
   static final QueryField ID = QueryField(fieldName: "user.id");
   static final QueryField USERNAME = QueryField(fieldName: "username");
   static final QueryField EMAIL = QueryField(fieldName: "email");
   static final QueryField AVATARKEY = QueryField(fieldName: "avatarKey");
+  static final QueryField DESCRIPTION = QueryField(fieldName: "description");
   static var schema =
       Model.defineSchema(define: (ModelSchemaDefinition modelSchemaDefinition) {
     modelSchemaDefinition.name = "User";
@@ -127,6 +152,11 @@ class User extends Model {
 
     modelSchemaDefinition.addField(ModelFieldDefinition.field(
         key: User.AVATARKEY,
+        isRequired: false,
+        ofType: ModelFieldType(ModelFieldTypeEnum.string)));
+
+    modelSchemaDefinition.addField(ModelFieldDefinition.field(
+        key: User.DESCRIPTION,
         isRequired: false,
         ofType: ModelFieldType(ModelFieldTypeEnum.string)));
   });

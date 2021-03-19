@@ -24,7 +24,7 @@ class DataRepository {
     final newUser = User(
       id: userId.trim(),
       username: username.trim(),
-      email: email.trim(),
+      email: email == null ? null : email.trim(),
     );
     try {
       await Amplify.DataStore.save(newUser);
