@@ -56,7 +56,22 @@ const amplifyconfig = ''' {
                         "AuthMode": "AWS_IAM",
                         "ClientDatabasePrefix": "socialmediaproto_AWS_IAM"
                     }
+                },
+                "S3TransferUtility": {
+                    "Default": {
+                        "Bucket": "socialmediaproto74a15af317404680a0884a86923f01c62523-dev",
+                        "Region": "us-west-2"
+                    }
                 }
+            }
+        }
+    },
+    "storage": {
+        "plugins": {
+            "awsS3StoragePlugin": {
+                "bucket": "socialmediaproto74a15af317404680a0884a86923f01c62523-dev",
+                "region": "us-west-2",
+                "defaultAccessLevel": "guest"
             }
         }
     }

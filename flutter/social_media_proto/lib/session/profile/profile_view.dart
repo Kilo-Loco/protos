@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media_proto/auth/form_submission_status.dart';
+import 'package:social_media_proto/data_repository.dart';
 import 'package:social_media_proto/session/profile/profile_bloc.dart';
 import 'package:social_media_proto/session/profile/profile_event.dart';
 import 'package:social_media_proto/session/session_cubit.dart';
+import 'package:social_media_proto/session/storage_repository.dart';
 
 import 'profile_state.dart';
-
-final imagePath =
-    'https://img3.hulu.com/user/v3/artwork/d52faa4f-cf30-4919-9ad3-5d540c026b43?base_image_bucket_name=image_manager&base_image=706d6860-1dd5-4451-b5e4-8c31daa97f94&size=600x338&format=jpeg';
 
 class ProfileView extends StatelessWidget {
   final _isCurrentUser = true;
@@ -18,8 +17,11 @@ class ProfileView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFF2F2F7),
       body: BlocProvider(
-        create: (context) =>
-            ProfileBloc.fromSession(context.read<SessionCubit>()),
+        create: (context) => ProfileBloc(
+          sessionCubit: context.read<SessionCubit>(),
+          dataRepo: context.read<DataRepository>(),
+          storageRepo: context.read<StorageRepository>(),
+        ),
         child: _profilePage(),
       ),
     );
@@ -45,17 +47,23 @@ class ProfileView extends StatelessWidget {
   }
 
   Widget _avatar() {
-    return CircleAvatar(
-      radius: 50,
-      backgroundImage: NetworkImage(imagePath),
-    );
+    return BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
+      return state.avatarPath != null
+          ? CircleAvatar(
+              radius: 50,
+              backgroundImage: NetworkImage(state.avatarPath),
+            )
+          : CircularProgressIndicator();
+    });
   }
 
   Widget _changeAvatarButton() {
-    return TextButton(
-      child: Text('Change Avatar'),
-      onPressed: () {},
-    );
+    return BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
+      return TextButton(
+        child: Text('Change Avatar'),
+        onPressed: () => context.read<ProfileBloc>().add(ChangeAvatarRequest()),
+      );
+    });
   }
 
   Widget _usernameTile() {

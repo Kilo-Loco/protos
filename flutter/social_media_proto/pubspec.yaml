@@ -29,6 +29,8 @@ dependencies:
   amplify_api:
   amplify_datastore:
   amplify_auth_cognito:
+  amplify_storage_s3:
+  image_picker:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

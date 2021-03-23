@@ -12,11 +12,21 @@ class SessionCubit extends Cubit<SessionState> {
   final AuthRepository authRepo;
   final DataRepository dataRepo;
 
+  Stream<User> currentUserStream;
+
   SessionCubit({
     @required this.authRepo,
     @required this.dataRepo,
   }) : super(UnknownSessionState()) {
     attemptAutoLogin();
+  }
+
+  void _observeUserChanges(User user) {
+    currentUserStream = dataRepo.currenUserStream(user.id);
+    currentUserStream.listen((user) {
+      print('got updated user $user');
+      (state as Authenticated).user = user;
+    });
   }
 
   void attemptAutoLogin() async {
@@ -56,6 +66,7 @@ class SessionCubit extends Cubit<SessionState> {
         );
       }
 
+      _observeUserChanges(user);
       emit(Authenticated(user: user));
     } on Exception {
       emit(Unauthenticated());

@@ -33,4 +33,19 @@ class DataRepository {
       throw e;
     }
   }
+
+  Future<User> updateUser(User updatedUser) async {
+    try {
+      await Amplify.DataStore.save(updatedUser);
+      return updatedUser;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Stream<User> currenUserStream(String currentUserId) {
+    return Amplify.DataStore.observe(User.classType)
+        .where((event) => event.item.id == currentUserId)
+        .map((event) => event.item);
+  }
 }
