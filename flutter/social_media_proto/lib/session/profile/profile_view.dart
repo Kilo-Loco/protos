@@ -1,5 +1,9 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:social_media_proto/auth/form_submission_status.dart';
 import 'package:social_media_proto/data_repository.dart';
 import 'package:social_media_proto/session/profile/profile_bloc.dart';
@@ -28,22 +32,28 @@ class ProfileView extends StatelessWidget {
   }
 
   Widget _profilePage() {
-    return SafeArea(
-      child: Center(
-        child: Column(
-          children: [
-            SizedBox(height: 30),
-            _avatar(),
-            if (_isCurrentUser) _changeAvatarButton(),
-            SizedBox(height: 30),
-            _usernameTile(),
-            if (_isCurrentUser) _emailTile(),
-            _descriptionTile(),
-            _saveProfileChangesButton(),
-          ],
-        ),
-      ),
-    );
+    return BlocListener<ProfileBloc, ProfileState>(
+        listener: (context, state) {
+          if (state.pickerSourceActionSheetVisible) {
+            _showPickerSourceActionSheet(context);
+          }
+        },
+        child: SafeArea(
+          child: Center(
+            child: Column(
+              children: [
+                SizedBox(height: 30),
+                _avatar(),
+                if (_isCurrentUser) _changeAvatarButton(),
+                SizedBox(height: 30),
+                _usernameTile(),
+                if (_isCurrentUser) _emailTile(),
+                _descriptionTile(),
+                _saveProfileChangesButton(),
+              ],
+            ),
+          ),
+        ));
   }
 
   Widget _avatar() {
@@ -121,5 +131,55 @@ class ProfileView extends StatelessWidget {
                   context.read<ProfileBloc>().add(SaveProfileChanges()),
             );
     });
+  }
+
+  void _showPickerSourceActionSheet(BuildContext context) {
+    Function(ImageSource) selectImageSource = (imageSource) {
+      context.read<ProfileBloc>().add(OpenImagePicker(source: imageSource));
+    };
+
+    if (Platform.isIOS) {
+      showCupertinoModalPopup(
+        context: context,
+        builder: (context) => CupertinoActionSheet(
+          actions: [
+            CupertinoActionSheetAction(
+                child: Text('Camera'),
+                onPressed: () {
+                  Navigator.pop(context);
+                  selectImageSource(ImageSource.camera);
+                }),
+            CupertinoActionSheetAction(
+                child: Text('Gallery'),
+                onPressed: () {
+                  Navigator.pop(context);
+                  selectImageSource(ImageSource.gallery);
+                }),
+          ],
+        ),
+      );
+    } else {
+      showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return ListView(children: [
+            ListTile(
+                leading: Icon(Icons.camera_alt),
+                title: Text('Camera'),
+                onTap: () {
+                  Navigator.pop(context);
+                  selectImageSource(ImageSource.camera);
+                }),
+            ListTile(
+                leading: Icon(Icons.photo_album),
+                title: Text('Gallery'),
+                onTap: () {
+                  Navigator.pop(context);
+                  selectImageSource(ImageSource.gallery);
+                }),
+          ]);
+        },
+      );
+    }
   }
 }

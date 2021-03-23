@@ -38,9 +38,15 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   @override
   Stream<ProfileState> mapEventToState(ProfileEvent event) async* {
-    if (event is OpenImagePicker) {
+    if (event is ChangeAvatarRequest) {
+      yield state.copyWith(pickerSourceActionSheetVisible: true);
+    } else if (event is OpenImagePicker) {
+      yield state.copyWith(
+        pickerSourceActionSheetVisible: false,
+        avatarIsChanging: true,
+      );
       // trigger photo picker to open
-      final pickedFile = await _picker.getImage(source: ImageSource.gallery);
+      final pickedFile = await _picker.getImage(source: event.source);
       if (pickedFile == null) return;
       final avatarKey = await storageRepo.uploadFile(File(pickedFile.path));
       final updatedUser = state.user.copyWith(avatarKey: avatarKey);
@@ -49,7 +55,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         storageRepo.getUrlForFile(avatarKey),
       ]);
       final avatarPath = results.last as String;
-      yield state.copyWith(avatarPath: avatarPath);
+      yield state.copyWith(
+        avatarPath: avatarPath,
+        avatarIsChanging: false,
+      );
     } else if (event is ProvideAvatarPath) {
       yield state.copyWith(avatarPath: event.avatarPath);
     } else if (event is ProfileDescriptionChanged) {

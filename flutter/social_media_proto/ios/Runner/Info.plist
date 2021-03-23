@@ -43,5 +43,7 @@
 	<false/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Gimmie dem photo boi!</string>
+	<key>NSCameraUsageDescription</key>
+	<string>I want to spy on you</string>
 </dict>
 </plist>

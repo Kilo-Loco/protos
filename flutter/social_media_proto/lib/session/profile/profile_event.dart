@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
 
 abstract class ProfileEvent {}
@@ -7,7 +8,7 @@ class ChangeAvatarRequest extends ProfileEvent {}
 class OpenImagePicker extends ProfileEvent {
   final ImageSource source;
 
-  OpenImagePicker({this.source});
+  OpenImagePicker({@required this.source});
 }
 
 class ProvideAvatarPath extends ProfileEvent {

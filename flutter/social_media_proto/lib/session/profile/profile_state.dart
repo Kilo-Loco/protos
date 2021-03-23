@@ -6,6 +6,7 @@ class ProfileState {
   final String avatarPath;
   final String userDescription;
   final bool avatarIsChanging;
+  final bool pickerSourceActionSheetVisible;
 
   final User user;
   String get username => user.username;
@@ -17,17 +18,20 @@ class ProfileState {
     @required User user,
     String avatarPath,
     String userDescription,
-    bool avatarIsChanging,
+    bool avatarIsChanging = false,
+    bool pickerSourceActionSheetVisible = false,
     this.formStatus = const InitialFormStatus(),
   })  : this.user = user,
         this.avatarPath = avatarPath,
         this.avatarIsChanging = avatarIsChanging,
+        this.pickerSourceActionSheetVisible = pickerSourceActionSheetVisible,
         this.userDescription = userDescription ?? user.description;
 
   ProfileState copyWith({
     String avatarPath,
     String description,
     bool avatarIsChanging,
+    bool pickerSourceActionSheetVisible,
     FormSubmissionStatus formStatus,
   }) {
     return ProfileState(
@@ -35,6 +39,8 @@ class ProfileState {
       avatarPath: avatarPath ?? this.avatarPath,
       userDescription: description ?? this.userDescription,
       avatarIsChanging: avatarIsChanging ?? this.avatarIsChanging,
+      pickerSourceActionSheetVisible:
+          pickerSourceActionSheetVisible ?? this.pickerSourceActionSheetVisible,
       formStatus: formStatus ?? this.formStatus,
     );
   }

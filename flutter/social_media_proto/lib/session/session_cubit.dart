@@ -22,6 +22,7 @@ class SessionCubit extends Cubit<SessionState> {
   }
 
   void _observeUserChanges(User user) {
+    print('observng current user');
     currentUserStream = dataRepo.currenUserStream(user.id);
     currentUserStream.listen((user) {
       print('got updated user $user');
@@ -46,6 +47,7 @@ class SessionCubit extends Cubit<SessionState> {
         );
       }
 
+      _observeUserChanges(user);
       emit(Authenticated(user: user));
     } on Exception {
       print('emitting unauthenticated');
