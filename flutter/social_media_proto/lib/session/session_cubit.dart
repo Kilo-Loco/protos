@@ -13,6 +13,9 @@ class SessionCubit extends Cubit<SessionState> {
   final DataRepository dataRepo;
 
   Stream<User> currentUserStream;
+  User get currentUser => (state as Authenticated).user;
+  set currentUser(User updatedUser) =>
+      (state as Authenticated).user = updatedUser;
 
   SessionCubit({
     @required this.authRepo,
@@ -26,7 +29,7 @@ class SessionCubit extends Cubit<SessionState> {
     currentUserStream = dataRepo.currenUserStream(user.id);
     currentUserStream.listen((user) {
       print('got updated user $user');
-      (state as Authenticated).user = user;
+      currentUser = user;
     });
   }
 

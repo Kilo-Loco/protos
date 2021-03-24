@@ -8,7 +8,6 @@ import 'package:social_media_proto/data_repository.dart';
 import 'package:social_media_proto/session/profile/profile_event.dart';
 import 'package:social_media_proto/session/profile/profile_state.dart';
 import 'package:social_media_proto/session/session_cubit.dart';
-import 'package:social_media_proto/session/session_state.dart';
 import 'package:social_media_proto/session/storage_repository.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
@@ -22,7 +21,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     @required this.sessionCubit,
     @required this.dataRepo,
     @required this.storageRepo,
-  }) : super(ProfileState(user: (sessionCubit.state as Authenticated).user)) {
+  }) : super(ProfileState(user: sessionCubit.currentUser)) {
     _getAvatarPath();
   }
 

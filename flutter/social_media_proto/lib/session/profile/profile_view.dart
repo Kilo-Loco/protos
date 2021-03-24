@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,24 +9,40 @@ import 'package:social_media_proto/session/profile/profile_bloc.dart';
 import 'package:social_media_proto/session/profile/profile_event.dart';
 import 'package:social_media_proto/session/session_cubit.dart';
 import 'package:social_media_proto/session/storage_repository.dart';
-
 import 'profile_state.dart';
 
 class ProfileView extends StatelessWidget {
-  final _isCurrentUser = true;
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFFF2F2F7),
-      body: BlocProvider(
-        create: (context) => ProfileBloc(
-          sessionCubit: context.read<SessionCubit>(),
-          dataRepo: context.read<DataRepository>(),
-          storageRepo: context.read<StorageRepository>(),
-        ),
-        child: _profilePage(),
+    return BlocProvider(
+      create: (context) => ProfileBloc(
+        sessionCubit: context.read<SessionCubit>(),
+        dataRepo: context.read<DataRepository>(),
+        storageRepo: context.read<StorageRepository>(),
       ),
+      child: Scaffold(
+        appBar: _appBar(),
+        backgroundColor: Color(0xFFF2F2F7),
+        body: _profilePage(),
+      ),
+    );
+  }
+
+  Widget _appBar() {
+    final appBarHeight = AppBar().preferredSize.height;
+    return PreferredSize(
+      preferredSize: Size.fromHeight(appBarHeight),
+      child: BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
+        return AppBar(
+          title: Text('Profile'),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.logout),
+              onPressed: () => context.read<SessionCubit>().signOut(),
+            )
+          ],
+        );
+      }),
     );
   }
 
@@ -44,10 +59,10 @@ class ProfileView extends StatelessWidget {
               children: [
                 SizedBox(height: 30),
                 _avatar(),
-                if (_isCurrentUser) _changeAvatarButton(),
+                _changeAvatarButton(),
                 SizedBox(height: 30),
                 _usernameTile(),
-                if (_isCurrentUser) _emailTile(),
+                _emailTile(),
                 _descriptionTile(),
                 _saveProfileChangesButton(),
               ],
@@ -109,15 +124,8 @@ class ProfileView extends StatelessWidget {
         leading: Icon(Icons.edit),
         title: TextFormField(
           initialValue: state.userDescription,
-          toolbarOptions: ToolbarOptions(
-            copy: _isCurrentUser,
-            cut: _isCurrentUser,
-            paste: _isCurrentUser,
-            selectAll: _isCurrentUser,
-          ),
           decoration: InputDecoration.collapsed(
               hintText: 'Say something about yourself'),
-          readOnly: !_isCurrentUser,
           maxLines: null,
           onChanged: (value) => context
               .read<ProfileBloc>()
