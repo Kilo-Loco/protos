@@ -56,6 +56,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       ]);
       final avatarPath = results.last as String;
       yield state.copyWith(
+        user: updatedUser,
         avatarPath: avatarPath,
         avatarIsChanging: false,
       );
@@ -66,9 +67,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     } else if (event is SaveProfileChanges) {
       yield state.copyWith(formStatus: FormSubmitting());
 
-      await Future.delayed(Duration(seconds: 2));
-      yield state.copyWith(formStatus: SubmissionSuccess());
-      // await dataRepo.updateCurrentUser(description: state.description)
+      final updatedUser =
+          state.user.copyWith(description: state.userDescription);
+      await dataRepo.updateUser(updatedUser);
+
+      yield state.copyWith(user: updatedUser, formStatus: SubmissionSuccess());
     }
   }
 }

@@ -28,6 +28,7 @@ class ProfileState {
         this.userDescription = userDescription ?? user.description;
 
   ProfileState copyWith({
+    User user,
     String avatarPath,
     String description,
     bool avatarIsChanging,
@@ -35,7 +36,7 @@ class ProfileState {
     FormSubmissionStatus formStatus,
   }) {
     return ProfileState(
-      user: this.user,
+      user: user ?? this.user,
       avatarPath: avatarPath ?? this.avatarPath,
       userDescription: description ?? this.userDescription,
       avatarIsChanging: avatarIsChanging ?? this.avatarIsChanging,

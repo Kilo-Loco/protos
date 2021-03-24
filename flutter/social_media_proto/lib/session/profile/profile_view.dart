@@ -59,9 +59,15 @@ class ProfileView extends StatelessWidget {
   Widget _avatar() {
     return BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
       return state.avatarPath != null
-          ? CircleAvatar(
-              radius: 50,
-              backgroundImage: NetworkImage(state.avatarPath),
+          ? Stack(
+              alignment: Alignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 50,
+                  backgroundImage: NetworkImage(state.avatarPath),
+                ),
+                if (state.avatarIsChanging) CircularProgressIndicator(),
+              ],
             )
           : CircularProgressIndicator();
     });
