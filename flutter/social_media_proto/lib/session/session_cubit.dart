@@ -4,9 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media_proto/auth/auth_credentials.dart';
 import 'package:social_media_proto/auth/auth_repository.dart';
 import 'package:social_media_proto/data_repository.dart';
+import 'package:social_media_proto/models/User.dart';
 import 'package:social_media_proto/session/session_state.dart';
-
-import '../models/User.dart';
 
 class SessionCubit extends Cubit<SessionState> {
   final AuthRepository authRepo;
@@ -17,6 +16,13 @@ class SessionCubit extends Cubit<SessionState> {
   set currentUser(User updatedUser) =>
       (state as Authenticated).user = updatedUser;
 
+  User get selectedUser => (state as Authenticated).selectedUser;
+  set selectedUser(User selectedUser) =>
+      (state as Authenticated).selectedUser = selectedUser;
+
+  bool get isCurrentUserSelected =>
+      selectedUser == null || currentUser.id == selectedUser.id;
+
   SessionCubit({
     @required this.authRepo,
     @required this.dataRepo,
@@ -25,20 +31,16 @@ class SessionCubit extends Cubit<SessionState> {
   }
 
   void _observeUserChanges(User user) {
-    print('observng current user');
     currentUserStream = dataRepo.currenUserStream(user.id);
     currentUserStream.listen((user) {
-      print('got updated user $user');
       currentUser = user;
     });
   }
 
   void attemptAutoLogin() async {
     try {
-      print('attempting');
       final userId = await authRepo.attemptAutoLogin();
       if (userId == null) {
-        print('not signed in');
         throw Exception('Not signed in');
       }
       User user = await dataRepo.getUserById(userId);

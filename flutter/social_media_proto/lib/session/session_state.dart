@@ -9,5 +9,7 @@ class Unauthenticated extends SessionState {}
 class Authenticated extends SessionState {
   User user;
 
+  User selectedUser;
+
   Authenticated({this.user});
 }

@@ -14,18 +14,26 @@ import 'profile_state.dart';
 class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final sessionCubit = context.read<SessionCubit>();
     return BlocProvider(
-      create: (context) => ProfileBloc(
-        sessionCubit: context.read<SessionCubit>(),
-        dataRepo: context.read<DataRepository>(),
-        storageRepo: context.read<StorageRepository>(),
-      ),
-      child: Scaffold(
-        appBar: _appBar(),
-        backgroundColor: Color(0xFFF2F2F7),
-        body: _profilePage(),
-      ),
-    );
+        create: (context) => ProfileBloc(
+              user: sessionCubit.selectedUser ?? sessionCubit.currentUser,
+              isCurrentUser: false,
+              dataRepo: context.read<DataRepository>(),
+              storageRepo: context.read<StorageRepository>(),
+            ),
+        child: BlocListener<ProfileBloc, ProfileState>(
+          listener: (context, state) {
+            if (state.pickerSourceActionSheetVisible) {
+              _showPickerSourceActionSheet(context);
+            }
+          },
+          child: Scaffold(
+            appBar: _appBar(),
+            backgroundColor: Color(0xFFF2F2F7),
+            body: _profilePage(),
+          ),
+        ));
   }
 
   Widget _appBar() {
@@ -36,10 +44,11 @@ class ProfileView extends StatelessWidget {
         return AppBar(
           title: Text('Profile'),
           actions: [
-            IconButton(
-              icon: Icon(Icons.logout),
-              onPressed: () => context.read<SessionCubit>().signOut(),
-            )
+            if (state.isCurrentUser)
+              IconButton(
+                icon: Icon(Icons.logout),
+                onPressed: () => context.read<SessionCubit>().signOut(),
+              )
           ],
         );
       }),
@@ -47,28 +56,24 @@ class ProfileView extends StatelessWidget {
   }
 
   Widget _profilePage() {
-    return BlocListener<ProfileBloc, ProfileState>(
-        listener: (context, state) {
-          if (state.pickerSourceActionSheetVisible) {
-            _showPickerSourceActionSheet(context);
-          }
-        },
-        child: SafeArea(
-          child: Center(
-            child: Column(
-              children: [
-                SizedBox(height: 30),
-                _avatar(),
-                _changeAvatarButton(),
-                SizedBox(height: 30),
-                _usernameTile(),
-                _emailTile(),
-                _descriptionTile(),
-                _saveProfileChangesButton(),
-              ],
-            ),
+    return BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
+      return SafeArea(
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(height: 30),
+              _avatar(),
+              if (state.isCurrentUser) _changeAvatarButton(),
+              SizedBox(height: 30),
+              _usernameTile(),
+              _emailTile(),
+              _descriptionTile(),
+              if (state.isCurrentUser) _saveProfileChangesButton(),
+            ],
           ),
-        ));
+        ),
+      );
+    });
   }
 
   Widget _avatar() {
@@ -130,6 +135,13 @@ class ProfileView extends StatelessWidget {
           onChanged: (value) => context
               .read<ProfileBloc>()
               .add(ProfileDescriptionChanged(description: value)),
+          toolbarOptions: ToolbarOptions(
+            copy: state.isCurrentUser,
+            cut: state.isCurrentUser,
+            paste: state.isCurrentUser,
+            selectAll: state.isCurrentUser,
+          ),
+          readOnly: !state.isCurrentUser,
         ),
       );
     });

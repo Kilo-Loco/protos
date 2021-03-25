@@ -5,23 +5,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:social_media_proto/auth/form_submission_status.dart';
 import 'package:social_media_proto/data_repository.dart';
+import 'package:social_media_proto/models/User.dart';
 import 'package:social_media_proto/session/profile/profile_event.dart';
 import 'package:social_media_proto/session/profile/profile_state.dart';
-import 'package:social_media_proto/session/session_cubit.dart';
 import 'package:social_media_proto/session/storage_repository.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
-  final SessionCubit sessionCubit;
   final DataRepository dataRepo;
   final StorageRepository storageRepo;
 
   final _picker = ImagePicker();
 
   ProfileBloc({
-    @required this.sessionCubit,
+    @required User user,
+    @required bool isCurrentUser,
     @required this.dataRepo,
     @required this.storageRepo,
-  }) : super(ProfileState(user: sessionCubit.currentUser)) {
+  }) : super(ProfileState(
+          user: user,
+          isCurrentUser: isCurrentUser,
+        )) {
     _getAvatarPath();
   }
 
