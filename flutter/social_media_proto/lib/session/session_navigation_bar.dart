@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_media_proto/session/feed/feed_view.dart';
+import 'package:social_media_proto/session/feed/feed_navigation.dart';
 import 'package:social_media_proto/session/profile/profile_view.dart';
 import 'package:social_media_proto/session/session_navigation_bar_cubit.dart';
 
 class SessionNavigationBar extends StatelessWidget {
   final List<Widget> _widgets = [
-    FeedView(),
+    FeedNavigation(),
     ProfileView(),
   ];
 

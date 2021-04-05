@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media_proto/session/feed/feed_bloc.dart';
+import 'package:social_media_proto/session/feed/feed_navigation_cubit.dart';
 import 'package:social_media_proto/session/feed/feed_state.dart';
 
 class FeedView extends StatelessWidget {
@@ -11,7 +12,7 @@ class FeedView extends StatelessWidget {
       child: Scaffold(
         appBar: _appBar(),
         body: _postsFeed(),
-        floatingActionButton: _newPostActionButton(),
+        floatingActionButton: _newPostActionButton(context),
       ),
     );
   }
@@ -39,10 +40,12 @@ class FeedView extends StatelessWidget {
     });
   }
 
-  Widget _newPostActionButton() {
+  Widget _newPostActionButton(BuildContext context) {
     return FloatingActionButton(
       child: Icon(Icons.add_a_photo),
-      onPressed: () {},
+      onPressed: () => context.read<FeedNavigationCubit>().showNewPost(),
     );
   }
+
+  void _showNewPostView() {}
 }
