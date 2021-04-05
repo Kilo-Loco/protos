@@ -4,6 +4,7 @@ import 'package:social_media_proto/auth/auth_cubit.dart';
 import 'package:social_media_proto/auth/auth_navigator.dart';
 import 'package:social_media_proto/loading_view.dart';
 import 'package:social_media_proto/session/session_cubit.dart';
+import 'package:social_media_proto/session/session_navigation_bar.dart';
 import 'package:social_media_proto/session/session_navigator.dart';
 import 'package:social_media_proto/session/session_state.dart';
 
@@ -21,7 +22,8 @@ class AppNavigator extends StatelessWidget {
                 child: AuthNavigator(),
               ),
             ),
-          if (state is Authenticated) MaterialPage(child: SessionNavigator()),
+          if (state is Authenticated)
+            MaterialPage(child: SessionNavigationBar()),
           if (state is UnknownSessionState) MaterialPage(child: LoadingView())
         ],
         onPopPage: (route, result) => route.didPop(result),

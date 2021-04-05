@@ -1,6 +1,9 @@
+import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify.dart';
 import 'package:flutter/material.dart';
+import 'package:social_media_proto/models/Post.dart';
 import 'package:social_media_proto/models/User.dart';
+import 'package:amplify_datastore_plugin_interface/amplify_datastore_plugin_interface.dart';
 
 class DataRepository {
   Future<User> getUserById(String userId) async {
@@ -47,5 +50,37 @@ class DataRepository {
     return Amplify.DataStore.observe(User.classType)
         .where((event) => event.item.id == currentUserId)
         .map((event) => event.item);
+  }
+
+  Future<List<Post>> getPosts(int index) async {
+    try {
+      final posts = await Amplify.DataStore.query(
+        Post.classType,
+        pagination: QueryPagination(page: index, limit: 50),
+      );
+      return posts;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<Post> createPost(
+    User user,
+    String imageKey,
+    String caption,
+  ) async {
+    final newPost = Post(
+      imageKey: imageKey,
+      creationDate: TemporalDateTime.now(),
+      likeCount: 0,
+      author: user,
+    );
+
+    try {
+      await Amplify.DataStore.save(newPost);
+      return newPost;
+    } catch (e) {
+      throw e;
+    }
   }
 }
