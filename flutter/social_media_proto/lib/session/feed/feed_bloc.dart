@@ -8,7 +8,9 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
   final DataRepository dataRepo;
   final User currentUser;
 
-  FeedBloc({this.dataRepo, this.currentUser}) : super(FeedState());
+  FeedBloc({this.dataRepo, this.currentUser}) : super(FeedState()) {
+    add(LoadInitialFeed());
+  }
 
   @override
   Stream<FeedState> mapEventToState(FeedEvent event) async* {

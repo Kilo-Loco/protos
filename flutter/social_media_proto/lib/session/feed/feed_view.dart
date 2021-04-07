@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_media_proto/data_repository.dart';
 import 'package:social_media_proto/session/feed/feed_bloc.dart';
 import 'package:social_media_proto/session/feed/feed_navigation_cubit.dart';
 import 'package:social_media_proto/session/feed/feed_state.dart';
@@ -8,7 +9,7 @@ class FeedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FeedBloc(),
+      create: (context) => FeedBloc(dataRepo: context.read<DataRepository>()),
       child: Scaffold(
         appBar: _appBar(),
         body: _postsFeed(),

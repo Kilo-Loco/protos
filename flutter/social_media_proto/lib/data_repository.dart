@@ -71,6 +71,7 @@ class DataRepository {
   ) async {
     final newPost = Post(
       imageKey: imageKey,
+      caption: caption,
       creationDate: TemporalDateTime.now(),
       likeCount: 0,
       author: user,
