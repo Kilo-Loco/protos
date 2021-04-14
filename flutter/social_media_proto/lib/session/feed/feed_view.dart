@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media_proto/data_repository.dart';
+import 'package:social_media_proto/session/amplify_image.dart';
 import 'package:social_media_proto/session/feed/feed_bloc.dart';
 import 'package:social_media_proto/session/feed/feed_navigation_cubit.dart';
 import 'package:social_media_proto/session/feed/feed_state.dart';
@@ -32,6 +33,9 @@ class FeedView extends StatelessWidget {
               itemBuilder: (context, index) {
                 final post = state.posts[index];
                 return ListTile(
+                  title: AmplifyImage(
+                    imageKey: post.imageKey,
+                  ),
                   subtitle: Text(post.caption ?? ''),
                 );
               })
@@ -48,5 +52,12 @@ class FeedView extends StatelessWidget {
     );
   }
 
-  void _showNewPostView() {}
+  void _showNewPostView() {
+    /*
+    child: AmplifyImage(
+      placeholder: Image(),
+      imageKey: 'someImageKey.jpg',
+    )
+     */
+  }
 }

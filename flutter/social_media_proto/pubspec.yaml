@@ -32,6 +32,10 @@ dependencies:
   amplify_storage_s3:
   image_picker:
 
+  path_provider:
+  cached_network_image:
+  shimmer:
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
