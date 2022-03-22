@@ -51,8 +51,7 @@ class _MyAppState extends State<MyApp> {
 
       debugPrint('configured amplify');
     } on AmplifyAlreadyConfiguredException {
-      debugPrint(
-          "Tried to reconfigure Amplify; this can occur when your app restarts on Android.");
+      debugPrint('exception');
     }
   }
 }

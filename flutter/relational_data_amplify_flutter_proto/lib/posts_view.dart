@@ -2,7 +2,6 @@ import 'package:amplify_datastore/amplify_datastore.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:relational_data_amplify_flutter_proto/post_details_view.dart';
-
 import 'models/Post.dart';
 
 class PostsView extends StatefulWidget {
