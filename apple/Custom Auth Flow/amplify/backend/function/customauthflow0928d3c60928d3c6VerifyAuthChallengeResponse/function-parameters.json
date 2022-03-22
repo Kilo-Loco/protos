@@ -1,0 +1,17 @@
+{
+  "trigger": true,
+  "modules": [
+    "boilerplate-verify"
+  ],
+  "parentResource": "customauthflow0928d3c60928d3c6",
+  "functionName": "customauthflow0928d3c60928d3c6VerifyAuthChallengeResponse",
+  "resourceName": "customauthflow0928d3c60928d3c6VerifyAuthChallengeResponse",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/snapshot/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/VerifyAuthChallengeResponse",
+  "triggerTemplate": "VerifyAuthChallengeResponse.json.ejs",
+  "triggerEventPath": "VerifyAuthChallengeResponse.event.json",
+  "roleName": "customauthflow0928d3c60928d3c6VerifyAuthChallengeResponse",
+  "skipEdit": true,
+  "enableCors": false
+}

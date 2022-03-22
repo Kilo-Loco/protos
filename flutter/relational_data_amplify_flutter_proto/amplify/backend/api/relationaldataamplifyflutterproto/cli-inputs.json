@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "relationaldataamplifyflutterproto",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/tmp/amplify-517f1707-ab9d-4fcf-b100-c097f7c3cf6d/amplify/backend/api/relationaldataamplifyflutterproto/schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "keyDescription": "api key description",
+      "expirationTime": 30
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "AWS_IAM"
+      }
+    ],
+    "conflictResolution": {
+      "defaultResolutionStrategy": {
+        "type": "AUTOMERGE"
+      }
+    }
+  }
+}

@@ -11,6 +11,10 @@
 		7C06A2CD27C597D600284AF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C06A2CC27C597D600284AF2 /* ContentView.swift */; };
 		7C06A2CF27C597D900284AF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C06A2CE27C597D900284AF2 /* Assets.xcassets */; };
 		7C06A2D227C597D900284AF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C06A2D127C597D900284AF2 /* Preview Assets.xcassets */; };
+		7C06A2DA27C5A63500284AF2 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 7C06A2D927C5A63500284AF2 /* AWSCognitoAuthPlugin */; };
+		7C06A2DC27C5A63500284AF2 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 7C06A2DB27C5A63500284AF2 /* Amplify */; };
+		7C06A2DF27C6ADC500284AF2 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C06A2DD27C6ADC500284AF2 /* awsconfiguration.json */; };
+		7C06A2E027C6ADC500284AF2 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C06A2DE27C6ADC500284AF2 /* amplifyconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,8 @@
 		7C06A2CC27C597D600284AF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7C06A2CE27C597D900284AF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C06A2D127C597D900284AF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7C06A2DD27C6ADC500284AF2 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		7C06A2DE27C6ADC500284AF2 /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +32,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C06A2DA27C5A63500284AF2 /* AWSCognitoAuthPlugin in Frameworks */,
+				7C06A2DC27C5A63500284AF2 /* Amplify in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +59,8 @@
 		7C06A2C927C597D600284AF2 /* Custom Auth Flow */ = {
 			isa = PBXGroup;
 			children = (
+				7C06A2DE27C6ADC500284AF2 /* amplifyconfiguration.json */,
+				7C06A2DD27C6ADC500284AF2 /* awsconfiguration.json */,
 				7C06A2CA27C597D600284AF2 /* Custom_Auth_FlowApp.swift */,
 				7C06A2CC27C597D600284AF2 /* ContentView.swift */,
 				7C06A2CE27C597D900284AF2 /* Assets.xcassets */,
@@ -83,6 +93,10 @@
 			dependencies = (
 			);
 			name = "Custom Auth Flow";
+			packageProductDependencies = (
+				7C06A2D927C5A63500284AF2 /* AWSCognitoAuthPlugin */,
+				7C06A2DB27C5A63500284AF2 /* Amplify */,
+			);
 			productName = "Custom Auth Flow";
 			productReference = 7C06A2C727C597D600284AF2 /* Custom Auth Flow.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +125,9 @@
 				Base,
 			);
 			mainGroup = 7C06A2BE27C597D600284AF2;
+			packageReferences = (
+				7C06A2D827C5A63500284AF2 /* XCRemoteSwiftPackageReference "amplify-ios" */,
+			);
 			productRefGroup = 7C06A2C827C597D600284AF2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +144,8 @@
 			files = (
 				7C06A2D227C597D900284AF2 /* Preview Assets.xcassets in Resources */,
 				7C06A2CF27C597D900284AF2 /* Assets.xcassets in Resources */,
+				7C06A2DF27C6ADC500284AF2 /* awsconfiguration.json in Resources */,
+				7C06A2E027C6ADC500284AF2 /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +360,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7C06A2D827C5A63500284AF2 /* XCRemoteSwiftPackageReference "amplify-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/amplify-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C06A2D927C5A63500284AF2 /* AWSCognitoAuthPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C06A2D827C5A63500284AF2 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = AWSCognitoAuthPlugin;
+		};
+		7C06A2DB27C5A63500284AF2 /* Amplify */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C06A2D827C5A63500284AF2 /* XCRemoteSwiftPackageReference "amplify-ios" */;
+			productName = Amplify;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7C06A2BF27C597D600284AF2 /* Project object */;
 }
