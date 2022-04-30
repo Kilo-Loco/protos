@@ -17,6 +17,7 @@ class FeedBloc extends Bloc<FeedEvent, FeedState> {
     if (event is LoadInitialFeed) {
       yield state.copyWith(loadingInitialFeed: true);
       final posts = await dataRepo.getPosts(0);
+      print('kyle ${posts.length}');
       yield state.copyWith(posts: posts, loadingInitialFeed: false);
     } else if (event is LoadNextPage) {}
   }

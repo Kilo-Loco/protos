@@ -32,11 +32,30 @@ class FeedView extends StatelessWidget {
               itemCount: state.posts.length,
               itemBuilder: (context, index) {
                 final post = state.posts[index];
-                return ListTile(
-                  title: AmplifyImage(
-                    imageKey: post.imageKey,
-                  ),
-                  subtitle: Text(post.caption ?? ''),
+                print(post.author);
+                return Column(
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.red),
+                          child: Icon(Icons.person, size: 40),
+                        ),
+                        Text(
+                          'Kilo Loco',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    AmplifyImage(
+                      imageKey: post.imageKey,
+                    ),
+                  ],
                 );
               })
           : Center(
@@ -50,14 +69,5 @@ class FeedView extends StatelessWidget {
       child: Icon(Icons.add_a_photo),
       onPressed: () => context.read<FeedNavigationCubit>().showNewPost(),
     );
-  }
-
-  void _showNewPostView() {
-    /*
-    child: AmplifyImage(
-      placeholder: Image(),
-      imageKey: 'someImageKey.jpg',
-    )
-     */
   }
 }
