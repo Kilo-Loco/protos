@@ -3,6 +3,7 @@ import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:relational_data_amplify_flutter_proto/models/Comment.dart';
 import 'package:relational_data_amplify_flutter_proto/models/Post.dart';
+import 'package:relational_data_amplify_flutter_proto/save_model_action_button.dart';
 
 class PostDetailsView extends StatefulWidget {
   final Post post;
@@ -24,10 +25,23 @@ class _PostDetailsViewState extends State<PostDetailsView> {
   }
 
   @override
+  void setState(VoidCallback fn) {
+    if (!mounted) return;
+    super.setState(fn);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(widget.post.title)),
-      body: _CommentsList(comments: _comments),
+      body: _CommentsList(
+        comments: _comments,
+        onDeleteComment: _deleteComment,
+      ),
+      floatingActionButton: SaveModelActionButton(
+        modelName: 'Comment',
+        onSave: _saveComment,
+      ),
     );
   }
 
@@ -40,6 +54,16 @@ class _PostDetailsViewState extends State<PostDetailsView> {
     _stream?.listen((snapshot) => setState(() => _comments = snapshot.items));
   }
 
+  void _saveComment(String body) async {
+    final newComment = Comment(body: body, postID: widget.post.id);
+    await Amplify.DataStore.save(newComment);
+  }
+
+  void _deleteComment(Comment comment) async {
+    await Amplify.DataStore.delete(comment);
+    _comments.removeWhere((element) => element.id == comment.id);
+  }
+
   @override
   void dispose() {
     _stream = null;
@@ -49,16 +73,33 @@ class _PostDetailsViewState extends State<PostDetailsView> {
 
 class _CommentsList extends StatelessWidget {
   final List<Comment> comments;
+  final Function(Comment) onDeleteComment;
 
-  const _CommentsList({Key? key, required this.comments}) : super(key: key);
+  const _CommentsList({
+    Key? key,
+    required this.comments,
+    required this.onDeleteComment,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: comments.length,
-      itemBuilder: (context, index) => Card(
-        child: ListTile(title: Text(comments[index].body)),
-      ),
+      itemBuilder: (context, index) {
+        final comment = comments[index];
+        return Dismissible(
+          key: Key(comment.id),
+          background: Container(
+            color: Colors.red,
+            child: const Icon(Icons.delete),
+            alignment: Alignment.centerRight,
+          ),
+          onDismissed: (_) => onDeleteComment(comment),
+          child: Card(
+            child: ListTile(title: Text(comment.body)),
+          ),
+        );
+      },
     );
   }
 }
