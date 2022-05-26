@@ -52,6 +52,16 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Composable
+fun NavGraph(navController: NavHostController) {
+    NavHost(navController = navController, startDestination = Route.LOGIN.name) {
+        composable(Route.LOGIN.name) { LoginScreen(viewModel = authViewModel) }
+        composable(Route.SIGN_UP.name) { SignUpScreen(viewModel = authViewModel) }
+        composable(Route.CONFIRM_SIGN_UP.name) { ConfirmSignUpScreen(viewModel = authViewModel) }
+        composable(Route.SESSION.name) { SessionScreen(viewModel = authViewModel) }
+    }
+}
+
 
 @Composable
 fun FormField(
