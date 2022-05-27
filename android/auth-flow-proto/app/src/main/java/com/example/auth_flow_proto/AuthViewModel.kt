@@ -1,5 +1,6 @@
 package com.example.auth_flow_proto
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -14,11 +15,9 @@ class AuthViewModel : ViewModel() {
     private val repository = AuthRepository()
 
     val nextRoute: MutableLiveData<Route> by lazy {
-        MutableLiveData<Route>(Route.LOGIN)
+        MutableLiveData<Route>(Route.INITIAL)
     }
 
-    var isSignedIn by mutableStateOf(false)
-        private set
     var loginState by mutableStateOf(LoginState())
         private set
     var signUpState by mutableStateOf(SignUpState())
