@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:amplify_flutter/amplify.dart';
+import 'package:amplify_storage_s3/amplify_storage_s3.dart';
 
 class StorageRepository {
   Future<String> uploadFile(File file) async {

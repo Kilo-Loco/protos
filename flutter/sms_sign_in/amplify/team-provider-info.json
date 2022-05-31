@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-smssignin-dev-105601-authRole",
+      "UnauthRoleArn": "arn:aws:iam::088987693321:role/amplify-smssignin-dev-105601-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::088987693321:role/amplify-smssignin-dev-105601-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-smssignin-dev-105601-deployment",
+      "UnauthRoleName": "amplify-smssignin-dev-105601-unauthRole",
+      "StackName": "amplify-smssignin-dev-105601",
+      "StackId": "arn:aws:cloudformation:us-west-2:088987693321:stack/amplify-smssignin-dev-105601/429af770-9023-11ec-8972-068a2b7dc9bf",
+      "AmplifyAppId": "d10gvmq3gwa491"
+    },
+    "categories": {
+      "auth": {
+        "smssigninb6ab3c90b6ab3c90": {}
+      }
+    }
+  }
+}

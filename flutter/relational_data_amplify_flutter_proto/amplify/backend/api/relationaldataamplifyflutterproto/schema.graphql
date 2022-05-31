@@ -1,0 +1,11 @@
+type Comment @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  body: String!
+  postID: ID! @index(name: "byPost")
+}
+
+type Post @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  comments: [Comment] @hasMany(indexName: "byPost", fields: ["id"])
+}
