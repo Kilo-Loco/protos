@@ -31,6 +31,10 @@ class AuthViewModel : ViewModel() {
         }
     }
 
+
+
+    
+
     fun loginStateDidChange(
         username: String? = null,
         password: String? = null
