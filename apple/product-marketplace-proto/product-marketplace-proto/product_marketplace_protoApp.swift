@@ -18,7 +18,7 @@ struct product_marketplace_protoApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SessionView()
         }
     }
     

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C246D6A2846E8AB00CC0766 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C246D692846E8AB00CC0766 /* HomeView.swift */; };
+		7C246D6C2846E90300CC0766 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C246D6B2846E90300CC0766 /* SessionView.swift */; };
+		7C246D6E2846E9BA00CC0766 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C246D6D2846E9BA00CC0766 /* ChatView.swift */; };
+		7C246D702846E9D200CC0766 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C246D6F2846E9D200CC0766 /* ProfileView.swift */; };
 		7CAE9D7D07AABE24EC7BC0DF /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 77963453B667D31F937DA9C0 /* amplifyconfiguration.json */; };
 		7CB3E2272841D824007CB3D9 /* product_marketplace_protoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3E2262841D824007CB3D9 /* product_marketplace_protoApp.swift */; };
 		7CB3E2292841D824007CB3D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3E2282841D824007CB3D9 /* ContentView.swift */; };
@@ -32,13 +36,20 @@
 		7CC295722846BA2600505312 /* AWSPinpointAnalyticsPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 7CC295712846BA2600505312 /* AWSPinpointAnalyticsPlugin */; };
 		7CC295742846BA2600505312 /* AWSS3StoragePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 7CC295732846BA2600505312 /* AWSS3StoragePlugin */; };
 		7CC295762846BA2600505312 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 7CC295752846BA2600505312 /* Amplify */; };
+		7CC295792846BE6800505312 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC295782846BE6800505312 /* AuthView.swift */; };
+		7CC2957B2846BEA300505312 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2957A2846BEA300505312 /* AuthViewModel.swift */; };
+		7CC2957D2846C30C00505312 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC2957C2846C30C00505312 /* SignUpView.swift */; };
 		A091E8B3E8B8D36155B99EE4 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A7FD524DA4E4ABCE2C9681A /* awsconfiguration.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A7FD524DA4E4ABCE2C9681A /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		77963453B667D31F937DA9C0 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
-		7CB3E2232841D824007CB3D9 /* product-marketplace-proto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "product-marketplace-proto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C246D692846E8AB00CC0766 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7C246D6B2846E90300CC0766 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		7C246D6D2846E9BA00CC0766 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		7C246D6F2846E9D200CC0766 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		7CB3E2232841D824007CB3D9 /* PM Proto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PM Proto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB3E2262841D824007CB3D9 /* product_marketplace_protoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = product_marketplace_protoApp.swift; sourceTree = "<group>"; };
 		7CB3E2282841D824007CB3D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7CB3E22A2841D825007CB3D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +67,9 @@
 		7CB3E23F2842D992007CB3D9 /* ChatRoom+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChatRoom+Schema.swift"; sourceTree = "<group>"; };
 		7CB3E2402842D992007CB3D9 /* LastMessage+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LastMessage+Schema.swift"; sourceTree = "<group>"; };
 		7CB3E2412842D992007CB3D9 /* Message+Schema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+Schema.swift"; sourceTree = "<group>"; };
+		7CC295782846BE6800505312 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		7CC2957A2846BEA300505312 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		7CC2957C2846C30C00505312 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +111,7 @@
 		7CB3E2242841D824007CB3D9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7CB3E2232841D824007CB3D9 /* product-marketplace-proto.app */,
+				7CB3E2232841D824007CB3D9 /* PM Proto.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,11 +119,16 @@
 		7CB3E2252841D824007CB3D9 /* product-marketplace-proto */ = {
 			isa = PBXGroup;
 			children = (
+				7CC295772846BE2900505312 /* Auth */,
 				7CB3E2342842D992007CB3D9 /* models */,
 				7CB3E2262841D824007CB3D9 /* product_marketplace_protoApp.swift */,
 				7CB3E2282841D824007CB3D9 /* ContentView.swift */,
 				7CB3E22A2841D825007CB3D9 /* Assets.xcassets */,
 				7CB3E22C2841D825007CB3D9 /* Preview Content */,
+				7C246D692846E8AB00CC0766 /* HomeView.swift */,
+				7C246D6B2846E90300CC0766 /* SessionView.swift */,
+				7C246D6D2846E9BA00CC0766 /* ChatView.swift */,
+				7C246D6F2846E9D200CC0766 /* ProfileView.swift */,
 			);
 			path = "product-marketplace-proto";
 			sourceTree = "<group>";
@@ -143,6 +162,16 @@
 			path = amplify/generated/models;
 			sourceTree = SOURCE_ROOT;
 		};
+		7CC295772846BE2900505312 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7CC295782846BE6800505312 /* AuthView.swift */,
+				7CC2957A2846BEA300505312 /* AuthViewModel.swift */,
+				7CC2957C2846C30C00505312 /* SignUpView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,7 +198,7 @@
 				7CC295752846BA2600505312 /* Amplify */,
 			);
 			productName = "product-marketplace-proto";
-			productReference = 7CB3E2232841D824007CB3D9 /* product-marketplace-proto.app */;
+			productReference = 7CB3E2232841D824007CB3D9 /* PM Proto.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -231,17 +260,24 @@
 				7CB3E2432842D992007CB3D9 /* ChatRoomUser+Schema.swift in Sources */,
 				7CB3E24E2842D992007CB3D9 /* Message+Schema.swift in Sources */,
 				7CB3E2422842D992007CB3D9 /* ChatRoomUser.swift in Sources */,
+				7C246D6E2846E9BA00CC0766 /* ChatView.swift in Sources */,
 				7CB3E2292841D824007CB3D9 /* ContentView.swift in Sources */,
 				7CB3E2442842D992007CB3D9 /* LastMessage.swift in Sources */,
+				7CC295792846BE6800505312 /* AuthView.swift in Sources */,
+				7CC2957B2846BEA300505312 /* AuthViewModel.swift in Sources */,
 				7CB3E2452842D992007CB3D9 /* AmplifyModels.swift in Sources */,
 				7CB3E24C2842D992007CB3D9 /* ChatRoom+Schema.swift in Sources */,
 				7CB3E24A2842D992007CB3D9 /* Product.swift in Sources */,
+				7C246D6C2846E90300CC0766 /* SessionView.swift in Sources */,
 				7CB3E2482842D992007CB3D9 /* User.swift in Sources */,
 				7CB3E2272841D824007CB3D9 /* product_marketplace_protoApp.swift in Sources */,
 				7CB3E24D2842D992007CB3D9 /* LastMessage+Schema.swift in Sources */,
 				7CB3E2462842D992007CB3D9 /* Message.swift in Sources */,
 				7CB3E2492842D992007CB3D9 /* ChatRoom.swift in Sources */,
+				7CC2957D2846C30C00505312 /* SignUpView.swift in Sources */,
 				7CB3E2472842D992007CB3D9 /* User+Schema.swift in Sources */,
+				7C246D702846E9D200CC0766 /* ProfileView.swift in Sources */,
+				7C246D6A2846E8AB00CC0766 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,13 +414,14 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kiloloco.product-marketplace-proto";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "PM Proto";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -407,13 +444,14 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kiloloco.product-marketplace-proto";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "PM Proto";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
