@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  pretty-auth-proto
+
+  Created by Kilo Loco on 1/19/23.
+  
+*/
+
+"welcome-title" = "WELCOME TO APPY";
+"login-button-title" = "LOGIN";
+"sign-up-button-title" = "SIGN UP";
